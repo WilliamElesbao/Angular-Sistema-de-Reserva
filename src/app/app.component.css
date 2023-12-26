@@ -1,0 +1,15 @@
+.conjuntos_ilhas{
+  /* border: 4px red solid; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 100vh;
+
+}
+
+.conjuntos_ilhas > h2 {
+  font-weight: 800;
+}
