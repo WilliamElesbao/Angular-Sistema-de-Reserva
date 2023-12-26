@@ -1,0 +1,116 @@
+.conjunto__ilhas{
+  /* border: 1px solid blue; */
+
+  display: flex;
+  justify-content: space-around;
+
+  width: 100vw;
+
+}
+
+.ilha__central {
+  /* border: 1px solid black; */
+
+  display: flex;
+  flex-direction: column;
+
+  width: 250px;
+  height: auto;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.ilha__central__mesa > h3 {
+  color: black;
+  background-color: transparent;
+}
+
+.numero_ilha {
+  /* border: green 1px solid; */
+  margin: auto;
+
+
+}
+
+.conjunto__mesas {
+  /* border: 1px solid red; */
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  width: 200px;
+  height: auto;
+
+  margin: auto;
+  margin-bottom: 5px;
+
+
+}
+
+.conjunto__mesas_13{
+  /* border: 1px solid violet; */
+  display: grid;
+  grid-template-columns: 1fr;
+
+  width: 200px;
+  height: auto;
+
+  margin: auto;
+  margin-bottom: 5px;
+
+}
+
+.ilha__central__mesa {
+  border: 1px solid rgb(204,164,120);
+  border-radius: .25rem;
+
+  margin: 1px;
+  padding: 5px 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(212, 212, 212);
+}
+
+.btn-reservar {
+  border-radius: 4px;
+  border: 1px solid rgb(1, 0, 83);
+
+  background-color: #111D2F;
+  opacity: 1;
+
+  width: 90%;
+
+  padding: 3px;
+  margin-top: 6px;
+
+  cursor: pointer;
+
+  color: #1F6FEB;
+
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+
+  text-decoration: none;
+
+}
+
+.btn-reservar:hover {
+  background-color: #1F6FEB;
+
+  color: snow;
+  
+  transition: 250ms;
+}
+
+.btn-reservar:active {
+  position: relative;
+  top: 1px;
+
+}
+
