@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
 
-  width: 250px;
+  width: 307px;
   height: auto;
 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -44,25 +44,15 @@
 
 }
 
-.conjunto__mesas_13{
-  /* border: 1px solid violet; */
-  display: grid;
-  grid-template-columns: 1fr;
-
-  width: 200px;
-  height: auto;
-
-  margin: auto;
-  margin-bottom: 5px;
-
-}
-
 .ilha__central__mesa {
   border: 1px solid rgb(204,164,120);
   border-radius: .25rem;
 
   margin: 1px;
   padding: 5px 0;
+
+  width: 120px;
+  height: 80px;
 
   display: flex;
   flex-direction: column;
@@ -79,7 +69,7 @@
   background-color: #111D2F;
   opacity: 1;
 
-  width: 90%;
+  width: 95%;
 
   padding: 3px;
   margin-top: 6px;
