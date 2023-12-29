@@ -14,8 +14,20 @@
         class="ilha__central__mesa"
       >
         <h3>{{ mesa.nome }} {{ mesa.id }}</h3>
-        <button class="btn-reservar">{{ btnContent }}</button>
+        <app-modal
+          [mesaNome]="mesa.nome"
+          [mesaId]="mesa.id"
+          [ilhaNome]="ilha.nome"
+          [ilhaId]="ilha.id"
+          [branch]="mesa.branch"
+          [pcType]="mesa.pcType"
+          [serialNumberPc]="mesa.serialNumberPc"
+          >
+        </app-modal>
+
       </div>
     </div>
   </div>
 </div>
+
+

@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import info_ilhas_mesas from '../../assets/data/dados_ilhas_centrais.json';
+import { ModalService } from '../modal.service';
+
 
 interface Mesa {
   id: number;
   nome: string;
+
+  branch?: string;
+  pcType?: string;
+  serialNumberPc?: string;
 }
 
 interface Ilha {
@@ -23,7 +29,7 @@ export class IlhaCentralComponent implements OnInit {
   btnContent: string = 'Reservar'
   ilhas: Ilha[] = []
 
-  constructor() { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
 
@@ -38,4 +44,5 @@ export class IlhaCentralComponent implements OnInit {
 
     }
   }
+
 }
