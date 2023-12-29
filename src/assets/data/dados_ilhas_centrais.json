@@ -1,36 +1,36 @@
 {
   "dados_ilha":[
     {"id": 1, "nome": "Ilha", "mesas":[
-                                        {"id": 1,"nome": "Mesa"},
-                                        {"id": 2,"nome": "Mesa"},
-                                        {"id": 3,"nome": "Mesa"},
-                                        {"id": 4,"nome": "Mesa"}
+                                        {"id": 1,"nome": "Mesa", "branch": "RS", "pcType": "NTB", "serialNumberPc": "012345"},
+                                        {"id": 2,"nome": "Mesa", "branch": "RS", "pcType": "DSK", "serialNumberPc": "000000"},
+                                        {"id": 3,"nome": "Mesa", "branch": "RS", "pcType": "WKS", "serialNumberPc": "111111"},
+                                        {"id": 4,"nome": "Mesa", "branch": "RS", "pcType": "WKS", "serialNumberPc": "222222"}
                                       ]
     },
     {"id": 2, "nome": "Ilha", "mesas":[
-                                        {"id": 1,"nome": "Mesa"},
-                                        {"id": 2,"nome": "Mesa"}
+                                        {"id": 1,"nome": "Mesa", "branch": "PR", "pcType": "NTB", "serialNumberPc": "333333"},
+                                        {"id": 2,"nome": "Mesa", "branch": "PR", "pcType": "DSK", "serialNumberPc": "444444"}
                                       ]
     },
     {"id": 3, "nome": "Ilha", "mesas":[
-                                        {"id": 1,"nome": "Mesa"},
-                                        {"id": 2,"nome": "Mesa"},
-                                        {"id": 3,"nome": "Mesa"},
-                                        {"id": 4,"nome": "Mesa"}
+                                        {"id": 1,"nome": "Mesa", "branch": "SC", "pcType": "WKS", "serialNumberPc": "555555"},
+                                        {"id": 2,"nome": "Mesa", "branch": "SC", "pcType": "WKS", "serialNumberPc": "666666"},
+                                        {"id": 3,"nome": "Mesa", "branch": "SC", "pcType": "WKS", "serialNumberPc": "777777"},
+                                        {"id": 4,"nome": "Mesa", "branch": "SC", "pcType": "WKS", "serialNumberPc": "888888"}
                                       ]
     },
     {"id": 4, "nome": "Ilha", "mesas":[
-                                        {"id": 1,"nome": "Mesa"},
-                                        {"id": 2,"nome": "Mesa"},
-                                        {"id": 3,"nome": "Mesa"},
-                                        {"id": 4,"nome": "Mesa"}
+                                        {"id": 1,"nome": "Mesa", "branch": "SP", "pcType": "WKS", "serialNumberPc": "999999"},
+                                        {"id": 2,"nome": "Mesa", "branch": "SP", "pcType": "WKS", "serialNumberPc": "999999"},
+                                        {"id": 3,"nome": "Mesa", "branch": "SP", "pcType": "WKS", "serialNumberPc": "888888"},
+                                        {"id": 4,"nome": "Mesa", "branch": "SP", "pcType": "WKS", "serialNumberPc": "888888"}
                                       ]
     },
     {"id": 5, "nome": "Ilha", "mesas":[
-                                        {"id": 1,"nome": "Mesa"},
-                                        {"id": 2,"nome": "Mesa"},
-                                        {"id": 3,"nome": "Mesa"},
-                                        {"id": 4,"nome": "Mesa"}
+                                        {"id": 1,"nome": "Mesa", "branch": "SP", "pcType": "MONITOR", "serialNumberPc": "987654"},
+                                        {"id": 2,"nome": "Mesa", "branch": "SP", "pcType": "MONITOR", "serialNumberPc": "456789"},
+                                        {"id": 3,"nome": "Mesa", "branch": "SP", "pcType": "MONITOR", "serialNumberPc": "123456"},
+                                        {"id": 4,"nome": "Mesa", "branch": "SP", "pcType": "MONITOR", "serialNumberPc": "654321"}
                                       ]
     }
   ]

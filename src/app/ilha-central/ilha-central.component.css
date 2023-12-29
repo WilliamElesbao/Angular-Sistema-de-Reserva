@@ -62,41 +62,7 @@
   background-color: rgb(212, 212, 212);
 }
 
-.btn-reservar {
-  border-radius: 4px;
-  border: 1px solid rgb(1, 0, 83);
-
-  background-color: #111D2F;
-  opacity: 1;
-
-  width: 95%;
-
-  padding: 3px;
-  margin-top: 6px;
-
-  cursor: pointer;
-
-  color: #1F6FEB;
-
-  font-family: Arial;
-  font-size: 15px;
-  font-weight: bold;
-
-  text-decoration: none;
-
-}
-
-.btn-reservar:hover {
-  background-color: #1F6FEB;
-
-  color: snow;
-
-  transition: 250ms;
-}
-
-.btn-reservar:active {
-  position: relative;
-  top: 1px;
-
+app-modal{
+  background-color: transparent;
 }
 
