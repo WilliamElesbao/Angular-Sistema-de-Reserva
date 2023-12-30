@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalService } from '../modal.service';
+import { ModalService } from '../../services/modal.service';
 import { IlhaCentralComponent } from '../ilha-central/ilha-central.component'
+import { GetDataIslandService } from '../../services/get-data-island.service';
+import { DataIsland } from 'src/app/models/dataIsland';
 
 
 interface Mesa {
@@ -21,7 +23,6 @@ interface Ilha {
 })
 
 export class ModalComponent implements OnInit {
-
   @Input() mesaNome: string | undefined;
   @Input() mesaId: number | undefined;
   @Input() ilhaNome: string | undefined;
@@ -38,9 +39,11 @@ export class ModalComponent implements OnInit {
   mesaValue:  any;
   ilhaValue:  any;
   nome:string = '';
+
   constructor(
     public modalService: ModalService,
-    private ilhaCentralComponent: IlhaCentralComponent
+    private ilhaCentralComponent: IlhaCentralComponent,
+    private getDataIslandService: GetDataIslandService
     ) {}
 
   ngOnInit(): void {
@@ -51,7 +54,7 @@ export class ModalComponent implements OnInit {
 
   openModal() {
     this.showModal = true;
-    console.log(`${this.ilhaNome} - ${this.ilhaId} - ${this.mesaNome} - ${this.mesaId}`)
+    // console.log(`${this.ilhaNome} - ${this.ilhaId} - ${this.mesaNome} - ${this.mesaId}`)
   }
 
   hideModal() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import info_ilhas_mesas from '../../assets/data/dados_ilhas_janela.json'
+import info_ilhas_mesas from '../../../assets/data/dados_ilhas_janela.json'
 
 interface Mesa {
   id: number;
