@@ -1,0 +1,22 @@
+@media (width <= 1855px) {
+  /* Container principal para ilhas e mesas */
+  .islands-and-tables__container {
+    /* border: 1px solid red; */
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    width: 100vw;
+  }
+
+  .island-and-tables__item {
+    /* border: 1px solid rgb(185, 255, 73); */
+
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* margin-top: 20px; Centraliza horizontalmente */
+  }
+}

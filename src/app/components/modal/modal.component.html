@@ -1,0 +1,92 @@
+  <!-- Botão para abrir o modal de reserva -->
+  <button class="btn-reservation"  (click)="openModal()">{{ btnContent }}</button>
+
+  <!-- Modal de reserva -->
+  <div class="modal__container" [ngClass]="{ 'show': showModal }" >
+    <div class="modal__content">
+      <!-- Cabeçalho do modal -->
+      <div class="modal__header">
+        <div class="modal__title">
+          <h2>{{ titleModal }}</h2>
+        </div>
+        <div class="modal__subtitle">
+          <!-- Detalhes da ilha, mesa e equipamento selecionados -->
+          <h3>{{ ilhaNome }} {{ ilhaId }} - {{ mesaNome }} {{ mesaId }} - {{ branch }}-{{ pcType }}-{{ serialNumberPc }}</h3>
+        </div>
+        <hr>
+      </div>
+
+      <!-- Formulário de reserva -->
+      <div class="content__forms">
+        <form>
+          <!-- Campo Nome -->
+          <div class="content_name">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" autocomplete="on">
+          </div>
+
+          <hr>
+          <!-- Campos de data de início e fim -->
+          <div class="content_start_date">
+            <label for="startDate">Data (início):</label>
+            <input type="datetime-local" name="data-inicio" id="startDate">
+          </div>
+          <hr>
+          <div class="content_end_date">
+            <label for="endDate">Data (final):</label>
+            <input type="datetime-local" name="data-fim" id="endDate">
+          </div>
+
+          <hr>
+          <!-- Campo de repetição -->
+          <div class="content_frequency">
+            <label for="repeticao">Repetição:</label>
+            <select class="form-control" id="repeticao" name="tipo-repeticao">
+              <option value="none">Nenhum</option>
+              <option value="diariamente">Diariamente</option>
+              <option value="semanalmente">Semanalmente</option>
+              <option value="mensalmente">Mensalmente</option>
+            </select>
+          </div>
+
+          <hr>
+          <!-- Dias da semana -->
+          <div class="content_days_of_the_week">
+            <span>Dias da semana:</span>
+            <table>
+              <th>Segunda</th>
+              <th>Terça</th>
+              <th>Quarta</th>
+              <th>Quinta</th>
+              <th>Sexta</th>
+              <th>Sábado</th>
+              <th>Domingo</th>
+              <tr>
+                <td><input class="form-check-input" type="checkbox" id="monday" name="days-of-week" value="monday"></td>
+                <td><input class="form-check-input" type="checkbox" id="tuesday" name="days-of-week" value="tuesday"></td>
+                <td><input class="form-check-input" type="checkbox" id="wednesday" name="days-of-week" value="wednesday"></td>
+                <td><input class="form-check-input" type="checkbox" id="thursday" name="days-of-week" value="thursday"></td>
+                <td><input class="form-check-input" type="checkbox" id="friday" name="days-of-week" value="friday"></td>
+                <td><input class="form-check-input" type="checkbox" id="saturday" name="days-of-week" value="saturday"></td>
+                <td><input class="form-check-input" type="checkbox" id="sunday" name="days-of-week" value="sunday"></td>
+              </tr>
+            </table>
+          </div>
+
+          <hr>
+          <!-- Campo de comentário -->
+          <div class="content_comment">
+            <label for="comentario">Comentário:</label>
+            <textarea class="" id="comentario" name="comentario-texto"></textarea>
+          </div>
+        </form>
+      </div>
+
+      <!-- Rodapé do modal -->
+      <footer>
+        <!-- Botões de cancelar e salvar a reserva -->
+        <button class="btn-cancelar" (click)="hideModal()">Cancelar</button>
+        <button class="btn-salvar" (click)="hideModal()">Salvar</button>
+      </footer>
+    </div>
+  </div>

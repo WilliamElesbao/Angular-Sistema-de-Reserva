@@ -1,0 +1,30 @@
+<div class="islands-and-tables__container">
+  <!-- Informações da Ilha (nome, número e quantidade de mesas por ilha) -->
+  <div *ngFor="let ilha of ilhas" class="island-and-tables__item">
+    <!-- Detalhes da ilha: nome e número -->
+    <div class="island-name-and-number">
+      <h2>{{ ilha.nome }} {{ ilha.id }}</h2>
+    </div>
+
+    <!-- Conjunto de mesas para a ilha atual -->
+    <div class="tables__container">
+      <!-- Iteração sobre as mesas da ilha -->
+      <div *ngFor="let mesa of ilha.mesas" class="island-central__table">
+        <!-- Detalhes da mesa: nome e número -->
+        <h3>{{ mesa.nome }} {{ mesa.id }}</h3>
+        <!-- Componente modal para exibir detalhes da mesa -->
+        <p>{{ mesa.branch }}-{{ mesa.pcType }}-{{ mesa.serialNumberPc }}</p>
+        <app-modal
+          [ilhaNome]="ilha.nome"
+          [ilhaId]="ilha.id"
+          [mesaNome]="mesa.nome"
+          [mesaId]="mesa.id"
+          [branch]="mesa.branch"
+          [pcType]="mesa.pcType"
+          [serialNumberPc]="mesa.serialNumberPc"
+          >
+        </app-modal>
+      </div>
+    </div>
+  </div>
+</div>

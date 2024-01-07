@@ -1,0 +1,74 @@
+.islands-and-tables__container{
+  /* border: 1px solid blue; */
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+.island-and-tables__item {
+  /* border: 1px solid tomato; */
+
+  display: flex;
+  flex-direction: column;
+  width: 12vw;
+  height: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0 auto;
+}
+
+.island-name-and-number {
+  /* border: green 1px solid; */
+
+   margin: 0 auto; /*cima, direita, baixo esquerda */
+}
+
+.tables__container {
+  /* border: 1px solid red; */
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin: auto;
+}
+
+.island-window__table {
+  /* border: 1px solid rgb(204,164,120); */
+  border-radius: .25rem;
+  margin: 1px;
+  padding: 5px 0;
+  width: 98%;
+  height: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(212, 212, 212);
+}
+
+/* Remove bkg tag */
+.island-window__table > h3,
+.island-window__table > p,
+app-modal {
+  background-color: transparent;
+}
+
+/* Estilo para o título da mesa */
+.island-window__table > h3 {
+  color: black;
+}
+
+/* Estilo para a tag <p> da mesa */
+.island-window__table > p {
+  border-radius: 15px;
+  color: rgb(88, 88, 88);
+  font-size: 13px;
+  padding: 5px;
+}
+
+/* Estilo para o componente modal */
+app-modal {
+  width: 100px;
+}
+
