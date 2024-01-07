@@ -1,103 +1,74 @@
-.conjunto__ilhas_e_mesas{
+.islands-and-tables__container{
   /* border: 1px solid blue; */
 
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
-
   width: 100vw;
-
 }
 
-.ilha_e_mesas {
+.island-and-tables__item {
   /* border: 1px solid tomato; */
 
   display: flex;
   flex-direction: column;
-
-  width: 250px;
+  width: 12vw;
   height: auto;
-
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  margin: 0 auto;
 }
 
-.ilha_nome_e_numero {
+.island-name-and-number {
   /* border: green 1px solid; */
-   margin: 0 auto 0 auto; /*cima, direita, baixo esquerda */
+
+   margin: 0 auto; /*cima, direita, baixo esquerda */
 }
 
-.ilha__central__mesa > h3 {
-  color: black;
-  background-color: transparent;
-}
-
-.conjunto__mesas {
+.tables__container {
   /* border: 1px solid red; */
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  width: 80%;
-
+  width: 100%;
   margin: auto;
-
 }
 
-.ilha__central__mesa {
-  border: 1px solid rgb(204,164,120);
+.island-window__table {
+  /* border: 1px solid rgb(204,164,120); */
   border-radius: .25rem;
-
   margin: 1px;
   padding: 5px 0;
-
-  width: 100px;
-  height: 120px;
-
-
+  width: 98%;
+  height: 135px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   background-color: rgb(212, 212, 212);
 }
 
-.btn-reservar {
-  border-radius: 4px;
-  border: 1px solid rgb(1, 0, 83);
-
-  background-color: #111D2F;
-  opacity: 1;
-
-  width: 95%;
-
-  padding: 3px;
-  margin-top: 6px;
-
-  cursor: pointer;
-
-  color: #1F6FEB;
-
-  font-family: Arial;
-  font-size: 15px;
-  font-weight: bold;
-
-  text-decoration: none;
-
+/* Remove bkg tag */
+.island-window__table > h3,
+.island-window__table > p,
+app-modal {
+  background-color: transparent;
 }
 
-.btn-reservar:hover {
-  background-color: #1F6FEB;
-
-  color: snow;
-
-  transition: 250ms;
+/* Estilo para o título da mesa */
+.island-window__table > h3 {
+  color: black;
 }
 
-.btn-reservar:active {
-  position: relative;
-  top: 1px;
+/* Estilo para a tag <p> da mesa */
+.island-window__table > p {
+  border-radius: 15px;
+  color: rgb(88, 88, 88);
+  font-size: 13px;
+  padding: 5px;
+}
 
+/* Estilo para o componente modal */
+app-modal {
+  width: 100px;
 }
 

@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from '../../services/modal.service';
+import { GetDataIslandService } from 'src/app/services/get-island-data.service';
 
-import { GetDataIslandService } from 'src/app/services/get-data-island.service'
-
+// Interfaces para definir a estrutura de Mesa e Ilha
 interface Mesa {
   id: number;
   nome: string;
-
   branch?: string;
   pcType?: string;
   serialNumberPc?: string;
@@ -21,27 +19,23 @@ interface Ilha {
 @Component({
   selector: 'app-ilha-central',
   templateUrl: './ilha-central.component.html',
-  styleUrls: ['./ilha-central.component.css']
+  styleUrls: ['./ilha-central.component.css','responsive.component.css']
 })
 export class IlhaCentralComponent implements OnInit {
 
-  btnContent: string = 'Reservar'
-  ilhas: Ilha[] = []
+  ilhas: Ilha[] = []; // Array para armazenar dados das ilhas
 
-  constructor(
-    private modalService: ModalService,
-    private getDataIslandService: GetDataIslandService,
-  ) { }
+  constructor(private getDataIslandService: GetDataIslandService) { }
 
   ngOnInit(): void {
-    this.getIlhasData()
-
+    this.getIlhasData(); // Obtém os dados das ilhas ao inicializar o componente
   }
 
+  // Obtém os dados das ilhas por meio do serviço GetDataIslandService
   getIlhasData() {
     this.getDataIslandService.getIslandData().subscribe(data => {
-      this.ilhas = data.dados_ilha
-      // console.log(this.ilhas)
-    })
+      this.ilhas = data.dados_ilha_central; // Atualiza o array ilhas com os dados recuperados
+      // console.log(this.ilhas); // Exibe as ilhas recuperadas no console
+    });
   }
 }

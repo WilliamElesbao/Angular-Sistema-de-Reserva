@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import info_ilhas_mesas from '../../../assets/data/dados_ilhas_janela.json'
+import { GetDataIslandService } from '../../services/get-island-data.service'
 
+// Interfaces para definir a estrutura de Mesa e Ilha
 interface Mesa {
   id: number;
   nome: string;
+  branch?: string;
+  pcType?: string;
+  serialNumberPc?: string;
 }
 
 interface Ilha {
@@ -15,22 +19,21 @@ interface Ilha {
 @Component({
   selector: 'app-ilha-janela',
   templateUrl: './ilha-janela.component.html',
-  styleUrls: ['./ilha-janela.component.css']
+  styleUrls: ['./ilha-janela.component.css','./responsive.component.css']
 })
 export class IlhaJanelaComponent implements OnInit {
 
-  btnContent: string = 'Reservar'
-  ilhas: Ilha[] = []
+  ilhas: Ilha[] = [] // Array para armazenar dados das ilhas
 
-  constructor() { }
+  constructor(private getDataIslandService: GetDataIslandService) { }
 
   ngOnInit(): void {
-
-    if(info_ilhas_mesas){
-      this.ilhas = info_ilhas_mesas.dados_ilha
-      // console.log(this.ilhas)
-    }
-
+    this.getIslandData(); // Obtém os dados das ilhas ao inicializar o componente
   }
 
+  getIslandData() {
+    this.getDataIslandService.getIslandData().subscribe(data => {
+      this.ilhas = data.dados_ilha_janela; // Atualiza o array ilhas com os dados recuperados
+    })
+  }
 }

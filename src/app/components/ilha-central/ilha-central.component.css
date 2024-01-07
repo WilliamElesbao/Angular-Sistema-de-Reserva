@@ -1,68 +1,75 @@
-.conjunto__ilhas_e_mesas{
-  /* border: 1px solid blue; */
+/* Container principal para ilhas e mesas */
+.islands-and-tables__container {
+  /* border: 1px solid red; */
 
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
   width: 100vw;
-
 }
 
-.ilha_e_mesas {
-  /* border: 1px solid tomato; */
+/* Estilo para cada item de ilha e suas mesas */
+.island-and-tables__item {
+  /* border: 1px solid rgb(185, 255, 73); */
 
   display: flex;
   flex-direction: column;
-
-  width: 307px;
+  width: 16vw;
   height: auto;
-
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  margin: 0 auto; /* Centraliza horizontalmente */
 }
 
-.ilha_nome_e_numero {
-  /* border: green 1px solid; */
-   margin: 0 auto 0 auto; /*cima, direita, baixo esquerda */
+/* Estilo para o nome e número da ilha */
+.island-name-and-number {
+  /* border: 1px solid rgb(174, 53, 255); */
+
+  margin: 0 auto; /* Centraliza horizontalmente */
 }
 
-.ilha__central__mesa > h3 {
-  color: black;
-  background-color: transparent;
-}
-
-.conjunto__mesas {
+/* Estilo para as mesas da ilha */
+.tables__container {
   /* border: 1px solid red; */
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  width: 80%;
-
+  width: 100%;
   margin: auto;
-
 }
 
-.ilha__central__mesa {
-  border: 1px solid rgb(204,164,120);
-  border-radius: .25rem;
+/* Estilo para cada mesa individual */
+.island-central__table {
+  /* border: 2px solid rgb(88, 236, 255); */
 
+  border-radius: .25rem;
   margin: 1px;
   padding: 5px 0;
-
-  width: 120px;
-  height: 80px;
-
+  width: 99%;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   background-color: rgb(212, 212, 212);
 }
 
-app-modal{
+/* Estilo para o título da mesa */
+.island-central__table > h3 {
+  color: black;
   background-color: transparent;
 }
 
+/* Estilo para a tag <p> da mesa */
+.island-central__table > p {
+  border-radius: 15px;
+  background-color: transparent;
+  color: rgb(88, 88, 88);
+  font-size: 13px;
+  padding: 5px;
+}
+
+/* Estilo para o componente modal */
+app-modal {
+  background-color: transparent;
+  width: 100px;
+}

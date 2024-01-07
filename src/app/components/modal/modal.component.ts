@@ -1,62 +1,36 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ModalService } from '../../services/modal.service';
-import { IlhaCentralComponent } from '../ilha-central/ilha-central.component'
-import { GetDataIslandService } from '../../services/get-data-island.service';
-import { DataIsland } from 'src/app/models/dataIsland';
-
-
-interface Mesa {
-  id: number;
-  nome: string;
-}
-
-interface Ilha {
-  id: number;
-  nome: string;
-  mesas: Mesa[];
-}
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
+export class ModalComponent {
+  // Valores padrão para o botão e o título do modal
+  btnContent: string = 'Reservar';
+  titleModal: string = 'Reservar';
 
-export class ModalComponent implements OnInit {
-  @Input() mesaNome: string | undefined;
-  @Input() mesaId: number | undefined;
+  // Variável que controla a exibição do modal
+  showModal: boolean = false;
+
+  // Inputs que recebem dados carregados do dados_ilhas_centrais.json no componente ilha-central.component.ts
   @Input() ilhaNome: string | undefined;
   @Input() ilhaId: number | undefined;
+  @Input() mesaNome: string | undefined;
+  @Input() mesaId: number | undefined;
   @Input() branch: string | undefined;
   @Input() pcType: string | undefined;
   @Input() serialNumberPc: string | undefined;
 
-  showModal: boolean = false;
-  btnContent: string = '';
+  constructor() {}
 
-  title: string = 'Reservar'
-
-  mesaValue:  any;
-  ilhaValue:  any;
-  nome:string = '';
-
-  constructor(
-    public modalService: ModalService,
-    private ilhaCentralComponent: IlhaCentralComponent,
-    private getDataIslandService: GetDataIslandService
-    ) {}
-
-  ngOnInit(): void {
-    const btnContent = this.ilhaCentralComponent.btnContent
-    this.btnContent = btnContent
-
-  }
-
+  // Função para abrir o modal
   openModal() {
     this.showModal = true;
     // console.log(`${this.ilhaNome} - ${this.ilhaId} - ${this.mesaNome} - ${this.mesaId}`)
   }
 
+  // Função para fechar o modal
   hideModal() {
     this.showModal = false;
   }

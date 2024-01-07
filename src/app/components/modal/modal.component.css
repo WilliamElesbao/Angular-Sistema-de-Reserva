@@ -1,4 +1,5 @@
-.modal {
+/* Estilização do container modal */
+.modal__container {
   /* border: red 3px solid; */
 
   display: none;
@@ -13,12 +14,14 @@
 
 }
 
+/* Classe para exibir o modal */
 .show {
   display: block;
 }
 
+/* Estilização do conteúdo do modal */
 .modal__content{
-  border: rgb(45, 183, 218) .2rem solid;
+  /* border: rgb(45, 183, 218) .2rem solid; */
 
   border-radius: .25rem;
   display: flex;
@@ -34,6 +37,7 @@
 
 }
 
+/* Estilização do cabeçalho do modal */
 .modal__header {
   /* border: 2px solid red; */
 
@@ -45,29 +49,24 @@
   background-color: transparent;
 
 }
-.modal__title,.modal__subtitle {
-  /* border: #1F6FEB 2px solid; */
 
-  background-color: transparent;
-}
-.modal__title > h2 {
-  color: rgb(29, 29, 29);
+/* Estilização do título e subtítulo do modal */
+.modal__title > h2,
+.modal__subtitle > h3 {
+  color: rgb(0, 0, 0);
   background-color: transparent;
   opacity: 0.9;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
 }
-.modal__subtitle > h3 {
-  color: rgb(29, 29, 29);
-  background-color: transparent;
-  opacity: 0.9;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+
+/* Linha separadora no cabeçalho */
 .modal__header > hr {
   margin-top: 1rem;
   width: 65%;
 }
 
+/* Estilização dos formulários */
 .content__forms{
   /* border: 2px solid coral; */
 
@@ -85,13 +84,16 @@
 
 
 }
-label{
+/* Estilização dos elementos comuns */
+label,
+span{
   color:rgba(0, 0, 0);
   font-weight: 600;
   background-color: transparent;
 }
 
-.btn-reservar {
+/* Estilização do botão de reserva */
+.btn-reservation {
   border-radius: 4px;
   border: 1px solid rgb(1, 0, 83);
 
@@ -114,20 +116,22 @@ label{
   text-decoration: none;
 
 }
+  /* Efeito hover do botão */
+  .btn-reservation:hover {
+    background-color: #1F6FEB;
 
-.btn-reservar:hover {
-  background-color: #1F6FEB;
+    color: snow;
 
-  color: snow;
+    transition: 250ms;
+  }
+  /* Efeito active do botão */
+  .btn-reservation:active {
+    position: relative;
+    top: 1px;
 
-  transition: 250ms;
-}
+  }
 
-.btn-reservar:active {
-  position: relative;
-  top: 1px;
-
-}
+/* Estilização dos elementos comuns (inputs, selects, textareas, etc.) - background-color: transparent; */
 form,
 footer,
 div,
@@ -140,21 +144,24 @@ textarea,
 table,
 th,
 td,
-tr
-{
+tr,
+span {
   background-color: transparent;
 }
 
-form{
+/* Especifica o tamanho do formulário */
+form {
   width: 100%;
   height: 100%;
 }
 
+/* Especifica como deve ser alinhado a label e o input */
 .content_name,
-.content_date,
-.content_duration,
+.content_start_date,
+.content_end_date,
 .content_frequency,
-.content_days_of_the_week {
+.content_days_of_the_week,
+.content_comment {
   /* border: red 1px solid; */
 
   display: flex;
@@ -164,10 +171,17 @@ form{
 
 }
 
-.content_name > label {
+/* Tamanho das label */
+.content_name > label,
+.content_start_date > label,
+.content_end_date > label,
+.content_frequency > label,
+.content_days_of_the_week > span,
+.content_comment > label {
   width: 20%;
 }
 
+/* Estilização dos input Nome */
 .content_name > input {
   border: 1px solid gray;
   border-radius: .25rem;
@@ -178,10 +192,8 @@ form{
   width: 50%;
 }
 
-.content_date > label {
-  width: 20%;
-}
-.content_date > input {
+/* Estilização dos input Data Start */
+.content_start_date > input {
   border: 1px solid gray;
   border-radius: .25rem;
   padding: .5rem;
@@ -189,10 +201,8 @@ form{
   width: 25%;
 }
 
-.content_duration > label {
-  width: 20%;
-}
-.content_duration > input {
+/* Estilização dos input Data End */
+.content_end_date > input {
   border: 1px solid gray;
   border-radius: .25rem;
   padding: .5rem;
@@ -200,9 +210,7 @@ form{
   width: 25%;
 }
 
-.content_frequency > label {
-  width: 20%;
-}
+/* Estilização da repeticao nenhum, diaria, semanal ou mensal */
 select {
   border: 1px solid gray;
   border-radius: .25rem;
@@ -215,13 +223,10 @@ select > option {
   background-color: #ddd;
 }
 
+/* Estilização da tabela de dias da semana */
 .content_days_of_the_week{
   display: flex;
   flex-direction: row;
-
-}
-.content_days_of_the_week > label{
-  width: 20%;
 }
 .content_days_of_the_week > table {
   /* border: red 1px solid; */
@@ -238,7 +243,6 @@ table > th {
   border-radius: 5px 0 0px 0;
   width: 120px;
 }
-
 table > tr > td {
   /* border: red 1px solid; */
   text-align: center;
@@ -246,7 +250,7 @@ table > tr > td {
   border-radius: 0 0px 5px 0px;
 }
 
-
+/* Estilização do textarea */
 textarea {
   resize: none; /* Impede o redimensionamento */
   width: 50%; /* Largura fixa */
@@ -258,8 +262,7 @@ textarea {
   color: rgb(0, 0, 0, 0.85);
 }
 
-
-
+/* Estilização do footer */
 footer{
   /* border: red 1px solid; */
   display: flex;
@@ -273,6 +276,7 @@ footer{
   padding-bottom: .25rem;
 
 }
+/* Estilização dos botões no footer */
 footer > button{
   color: rgba(255, 255, 255, 0.85);
   margin: 0 .5rem;
@@ -280,41 +284,33 @@ footer > button{
   width: 10rem;
   border-radius: .25rem;
 }
-
-.btn-cancelar, .btn-salvar {
+/* Estilização e efeito dos botões cancelar e salvar */
+.btn-cancelar,
+.btn-salvar {
   border: none;
   font-weight: 600;
   cursor: pointer;
-
 }
-
-.btn-cancelar:active {
-  position: relative;
-  top: 1px;
-
-}
+.btn-cancelar:active,
 .btn-salvar:active {
   position: relative;
   top: 1px;
-
 }
-
-.btn-salvar:hover {
-  background-color: #218838;
-  position: relative;
-  top: 1px;
-}
-
+.btn-salvar:hover,
 .btn-cancelar:hover {
-  background-color: #C62333;
   position: relative;
   top: 1px;
 }
-
+/* Estilização específica e efeito dos botões cancelar e salvar */
 .btn-cancelar{
   background-color: #DC3545;
 }
 .btn-salvar {
   background-color: #28A745;
 }
-
+.btn-salvar:hover {
+  background-color: #218838;
+}
+.btn-cancelar:hover {
+  background-color: #C62333;
+}
