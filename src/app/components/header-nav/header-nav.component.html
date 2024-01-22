@@ -1,0 +1,32 @@
+<!-- header.component.html -->
+<div class="header">
+  <nav>
+    <ul>
+      <a
+        [routerLink]="['/']"
+        [routerLinkActive]="['activated']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><li>
+          <i class="icon-pc fa-solid fa-computer"></i>Disposição Ilhas e Mesas<i
+            class="icon-pc fa-solid fa-computer"
+          ></i></li
+      ></a>
+      <a
+        [routerLink]="['available-tables']"
+        [routerLinkActive]="['activated']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><li>
+          Mesas Disponíveis<i class="icon-pc fa-solid fa-check-to-slot"></i></li
+      ></a>
+      <a
+        [routerLink]="['all-reservation']"
+        [routerLinkActive]="['activated']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><li>
+          Todas as Reservas<i
+            class="icon-search fa-solid fa-magnifying-glass"
+          ></i></li
+      ></a>
+    </ul>
+  </nav>
+</div>
