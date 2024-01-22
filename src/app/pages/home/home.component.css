@@ -3,13 +3,31 @@
   /* border: 4px red solid; */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  height: 100vh;
   width: 100%;
 }
 
 /* Estilos para os títulos dentro do container */
 .conjuntos_ilhas > h2 {
   font-weight: 800;
+  margin: 1.5rem 0;
+}
+
+.ilha-central {
+  /* border: 1px solid red; */
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.ilha-janela {
+  /* border: 1px solid red; */
+  width: 100%;
+  /* margin: 2rem 1rem; */
+}
+.icon-walk,
+.icon-window,
+.icon-sq-parking,
+.icon-car {
+  margin: 0 1rem;
 }

@@ -1,19 +1,27 @@
+// modal.component.ts
 import { Component, Input } from '@angular/core';
+import { LocalStorageService } from '../../services/local-storage.service';
+
+interface FormData {
+  nome: string;
+  startDate: any;
+  endDate: any;
+  frequency: any;
+  daysOfTheWeekSelected: any[];
+  comment: string;
+}
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent {
-  // Valores padrão para o botão e o título do modal
   btnContent: string = 'Reservar';
   titleModal: string = 'Reservar';
-
-  // Variável que controla a exibição do modal
   showModal: boolean = false;
+  diasDaSemanaSelecionados: string[] = ['', '', '', '', ''];
 
-  // Inputs que recebem dados carregados do dados_ilhas_centrais.json no componente ilha-central.component.ts
   @Input() ilhaNome: string | undefined;
   @Input() ilhaId: number | undefined;
   @Input() mesaNome: string | undefined;
@@ -22,15 +30,38 @@ export class ModalComponent {
   @Input() pcType: string | undefined;
   @Input() serialNumberPc: string | undefined;
 
-  constructor() {}
+  formData: FormData = {
+    nome: '',
+    startDate: '',
+    endDate: '',
+    frequency: 'none',
+    daysOfTheWeekSelected: this.diasDaSemanaSelecionados,
+    comment: '',
+  };
 
-  // Função para abrir o modal
-  openModal() {
-    this.showModal = true;
-    // console.log(`${this.ilhaNome} - ${this.ilhaId} - ${this.mesaNome} - ${this.mesaId}`)
+  constructor(private localStorageService: LocalStorageService) {}
+
+  capturarDadosFormulario() {
+    const diasSelecionados: string[] = [];
+    const diasDaSemana = ['seg', 'ter', 'qua', 'qui', 'sex'];
+
+    for (const [index, selected] of this.diasDaSemanaSelecionados.entries()) {
+      diasSelecionados.push(selected ? diasDaSemana[index] : '');
+    }
+
+    this.formData.daysOfTheWeekSelected = diasSelecionados;
+
+    this.localStorageService.saveFormData('reservas', {
+      ...this.formData,
+      infoLocal: `${this.ilhaNome} ${this.ilhaId} - ${this.mesaNome} ${this.mesaId} - ${this.branch}-${this.pcType}-${this.serialNumberPc}`,
+    });
+    this.showModal = false;
   }
 
-  // Função para fechar o modal
+  openModal() {
+    this.showModal = true;
+  }
+
   hideModal() {
     this.showModal = false;
   }
