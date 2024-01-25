@@ -1,32 +1,35 @@
 <!-- header.component.html -->
-<div class="header">
-  <nav>
-    <ul>
-      <a
-        [routerLink]="['/']"
-        [routerLinkActive]="['activated']"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ><li>
-          <i class="icon-pc fa-solid fa-computer"></i>Disposição Ilhas e Mesas<i
-            class="icon-pc fa-solid fa-computer"
-          ></i></li
-      ></a>
-      <a
-        [routerLink]="['available-tables']"
-        [routerLinkActive]="['activated']"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ><li>
-          Mesas Disponíveis<i class="icon-pc fa-solid fa-check-to-slot"></i></li
-      ></a>
-      <a
-        [routerLink]="['all-reservation']"
-        [routerLinkActive]="['activated']"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ><li>
-          Todas as Reservas<i
-            class="icon-search fa-solid fa-magnifying-glass"
-          ></i></li
-      ></a>
-    </ul>
+<header>
+  <nav class="header-nav">
+    <div class="logo transparent">
+      <a [routerLink]="['/']">
+        <img src="../../../assets/img/logo/logo_maior.png" alt="" />
+      </a>
+    </div>
+    <div class="header-nav-menu">
+      <ul>
+        <a
+          [routerLink]="['/']"
+          [routerLinkActive]="['activated']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ><li><span>Disposição ilhas/mesas</span></li></a
+        >
+        <a
+          [routerLink]="['available-tables']"
+          [routerLinkActive]="['activated']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ><li><span>Mesas disponíveis</span></li></a
+        >
+        <a
+          [routerLink]="['all-reservation']"
+          [routerLinkActive]="['activated']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ><li><span>Todas as reservas</span></li></a
+        >
+      </ul>
+    </div>
+    <div class="header-nav-about">
+      <span class="">About</span>
+    </div>
   </nav>
-</div>
+</header>

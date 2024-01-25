@@ -7,14 +7,14 @@
     <!-- Cabeçalho do modal -->
     <div class="modal__header">
       <div class="modal__title">
-        <h2>{{ titleModal }}</h2>
+        <span>{{ titleModal }}</span>
       </div>
       <div class="modal__subtitle">
         <!-- Detalhes da ilha, mesa e equipamento selecionados -->
-        <h3>
+        <span>
           {{ ilhaNome }} {{ ilhaId }} - {{ mesaNome }} {{ mesaId }} -
           {{ branch }}-{{ pcType }}-{{ serialNumberPc }}
-        </h3>
+        </span>
       </div>
       <hr />
     </div>
@@ -77,69 +77,71 @@
         <!-- Dias da semana (caso queira utilizar Sábado e domingo descomentar linhas (62, 63 e 70, 71)) -->
         <div class="content_days_of_the_week">
           <span>Dias da semana:</span>
-          <table>
-            <th>Segunda</th>
-            <th>Terça</th>
-            <th>Quarta</th>
-            <th>Quinta</th>
-            <th>Sexta</th>
-            <!-- <th>Sábado</th>
+          <div class="days-of-the-week__container">
+            <table>
+              <th>Segunda</th>
+              <th>Terça</th>
+              <th>Quarta</th>
+              <th>Quinta</th>
+              <th>Sexta</th>
+              <!-- <th>Sábado</th>
               <th>Domingo</th> -->
-            <tr>
-              <td>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="monday"
-                  name="days-of-week"
-                  value="monday"
-                  [(ngModel)]="diasDaSemanaSelecionados[0]"
-                />
-              </td>
-              <td>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="tuesday"
-                  name="days-of-week"
-                  value="tuesday"
-                  [(ngModel)]="diasDaSemanaSelecionados[1]"
-                />
-              </td>
-              <td>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="wednesday"
-                  name="days-of-week"
-                  value="wednesday"
-                  [(ngModel)]="diasDaSemanaSelecionados[2]"
-                />
-              </td>
-              <td>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="thursday"
-                  name="days-of-week"
-                  value="thursday"
-                  [(ngModel)]="diasDaSemanaSelecionados[3]"
-                />
-              </td>
-              <td>
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="friday"
-                  name="days-of-week"
-                  value="friday"
-                  [(ngModel)]="diasDaSemanaSelecionados[4]"
-                />
-              </td>
-              <!-- <td><input class="form-check-input" type="checkbox" id="saturday" name="days-of-week" value="saturday"></td>
+              <tr>
+                <td>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="monday"
+                    name="days-of-week"
+                    value="monday"
+                    [(ngModel)]="diasDaSemanaSelecionados[0]"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="tuesday"
+                    name="days-of-week"
+                    value="tuesday"
+                    [(ngModel)]="diasDaSemanaSelecionados[1]"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="wednesday"
+                    name="days-of-week"
+                    value="wednesday"
+                    [(ngModel)]="diasDaSemanaSelecionados[2]"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="thursday"
+                    name="days-of-week"
+                    value="thursday"
+                    [(ngModel)]="diasDaSemanaSelecionados[3]"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="friday"
+                    name="days-of-week"
+                    value="friday"
+                    [(ngModel)]="diasDaSemanaSelecionados[4]"
+                  />
+                </td>
+                <!-- <td><input class="form-check-input" type="checkbox" id="saturday" name="days-of-week" value="saturday"></td>
                 <td><input class="form-check-input" type="checkbox" id="sunday" name="days-of-week" value="sunday"></td> -->
-            </tr>
-          </table>
+              </tr>
+            </table>
+          </div>
         </div>
 
         <hr />
@@ -154,13 +156,15 @@
           ></textarea>
         </div>
         <!-- Rodapé do modal -->
-        <div class="footer-modal">
-          <!-- Botões de cancelar e salvar a reserva -->
-          <button type="button" class="btn-cancelar" (click)="hideModal()">
-            Cancelar
-          </button>
-          <button type="submit" class="btn-salvar">Salvar</button>
-        </div>
+        <footer>
+          <div class="footer-modal">
+            <!-- Botões de cancelar e salvar a reserva -->
+            <button type="button" class="btn-cancelar" (click)="hideModal()">
+              Cancelar
+            </button>
+            <button type="submit" class="btn-salvar">Salvar</button>
+          </div>
+        </footer>
       </form>
     </div>
   </div>

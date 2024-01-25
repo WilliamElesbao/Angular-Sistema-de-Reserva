@@ -3,9 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  background-color: rgb(13, 17, 23);
-
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: snow
+  background-color: var(--bg-color-main);
+  color: var(--font-color-title);
+  font-family: var(--font-family-all);
 }

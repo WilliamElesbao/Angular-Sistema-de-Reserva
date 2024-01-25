@@ -1,4 +1,5 @@
-@media (width <= 1855px) {
+@media (width <=1855px) {
+
   /* Container principal para ilhas e mesas */
   .islands-and-tables__container {
     /* border: 1px solid red; */
