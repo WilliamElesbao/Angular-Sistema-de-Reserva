@@ -1,75 +1,97 @@
-/* Container principal para ilhas e mesas */
-.islands-and-tables__container {
-  /* border: 1px solid red; */
+* {
+  background-color: transparent;
+}
 
+.island-set__container {
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
 
-/* Estilo para cada item de ilha e suas mesas */
 .island-and-tables__item {
-  /* border: 1px solid rgb(185, 255, 73); */
-
+  /* border: 2px solid rgb(98, 11, 179); */
   display: flex;
   flex-direction: column;
-  width: 16vw;
-  height: auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0 auto; /* Centraliza horizontalmente */
+  justify-content: space-between;
+  gap: 1rem;
+  width: 18vw;
+  padding: 0.75rem 1rem 1rem 1rem;
+  background-color: var(--bg-color-island);
+  border-radius: 18px;
+  box-shadow: var(--box-shadow-island);
+  -webkit-box-shadow: var(--webkit-box-shadow-island);
+  -moz-box-shadow: var(--moz-box-shadow-island);
 }
 
-/* Estilo para o nome e número da ilha */
 .island-name-and-number {
   /* border: 1px solid rgb(174, 53, 255); */
-
-  margin: 0 auto; /* Centraliza horizontalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 18px;
+  font-weight: 700;
 }
 
-/* Estilo para as mesas da ilha */
+.island-name-and-number>span,
+.island-name-and-number>.circle-number>span {
+  color: var(--title-color-island);
+}
+
+.island-name-and-number>.circle-number {
+  border: 1px dotted var(--title-color-island);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 15px;
+}
+
+.circle-number>span {
+  /* border: 1px solid red; */
+  position: absolute;
+}
+
 .tables__container {
   /* border: 1px solid red; */
-
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
   width: 100%;
   margin: auto;
 }
 
-/* Estilo para cada mesa individual */
 .island-central__table {
-  /* border: 2px solid rgb(88, 236, 255); */
-
+  /* border: 1px solid red; */
   border-radius: .25rem;
-  margin: 1px;
-  padding: 5px 0;
-  width: 99%;
   height: 100px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  background-color: rgb(212, 212, 212);
+  align-items: center;
+  gap: .25rem;
+  background-color: var(--bg-color-table);
+  box-shadow: var(--box-shadow-tables);
+  -webkit-box-shadow: var(--webkit-box-shadow-tables);
+  -moz-box-shadow: var(--moz-box-shadow-tables);
+  transition: 0.5s ease;
 }
 
-/* Estilo para o título da mesa */
-.island-central__table > h3 {
-  color: black;
-  background-color: transparent;
+/* .island-central__table:hover{
+  transform: scale(1.05);
+} */
+
+.island-central__table>.table-title {
+  /* border: 1px solid red; */
+  color: var(--title-color-table);
+  font-size: 12px;
 }
 
-/* Estilo para a tag <p> da mesa */
-.island-central__table > p {
-  border-radius: 15px;
-  background-color: transparent;
-  color: rgb(88, 88, 88);
-  font-size: 13px;
+.island-central__table>.table-subtitle {
+  /* border: 1px solid red; */
+  color: var(--subtitle-color-table);
+  font-size: 11px;
   padding: 5px;
-}
-
-/* Estilo para o componente modal */
-app-modal {
-  background-color: transparent;
-  width: 100px;
 }

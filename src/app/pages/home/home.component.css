@@ -1,33 +1,46 @@
-/* Estilos para o container principal das ilhas */
-.conjuntos_ilhas {
-  /* border: 4px red solid; */
+main {
+  /* border: 2px red solid; */
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 2rem;
   align-items: center;
   width: 100%;
 }
 
-/* Estilos para os títulos dentro do container */
-.conjuntos_ilhas > h2 {
-  font-weight: 800;
-  margin: 1.5rem 0;
+.top-set,
+.bottom-set {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1.3rem;
+  width: 100%;
 }
 
-.ilha-central {
+.title-top,
+.title-bottom {
   /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
   width: 100%;
-  margin-bottom: 1rem;
 }
 
-.ilha-janela {
+.title-top>span,
+.title-bottom>span {
   /* border: 1px solid red; */
-  width: 100%;
-  /* margin: 2rem 1rem; */
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.25rem;
 }
-.icon-walk,
-.icon-window,
-.icon-sq-parking,
+
+.icon-walk-left,
 .icon-car {
-  margin: 0 1rem;
+  transform: rotateY(180deg);
+}
+
+.bottom-set {
+  margin-bottom: 1.3rem;
 }

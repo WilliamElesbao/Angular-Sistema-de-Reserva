@@ -1,9 +1,12 @@
-<div class="islands-and-tables__container">
+<div class="island-set__container">
   <!-- Informações da Ilha (nome, número e quantidade de mesas por ilha) -->
   <div *ngFor="let ilha of ilhas" class="island-and-tables__item">
     <!-- Detalhes da ilha: nome e número -->
     <div class="island-name-and-number">
-      <h2>{{ ilha.nome }} {{ ilha.id }}</h2>
+      <span>{{ ilha.nome }}</span>
+      <div class="circle-number">
+        <span>{{ ilha.id }}</span>
+      </div>
     </div>
 
     <!-- Conjunto de mesas para a ilha atual -->
@@ -11,9 +14,11 @@
       <!-- Iteração sobre as mesas da ilha -->
       <div *ngFor="let mesa of ilha.mesas" class="island-central__table">
         <!-- Detalhes da mesa: nome e número -->
-        <h3>{{ mesa.nome }} {{ mesa.id }}</h3>
+        <span class="table-title">{{ mesa.nome }} {{ mesa.id }}</span>
         <!-- Componente modal para exibir detalhes da mesa -->
-        <p>{{ mesa.branch }}-{{ mesa.pcType }}-{{ mesa.serialNumberPc }}</p>
+        <span class="table-subtitle"
+          >{{ mesa.branch }}-{{ mesa.pcType }}-{{ mesa.serialNumberPc }}</span
+        >
         <app-modal
           [ilhaNome]="ilha.nome"
           [ilhaId]="ilha.id"
@@ -22,7 +27,7 @@
           [branch]="mesa.branch"
           [pcType]="mesa.pcType"
           [serialNumberPc]="mesa.serialNumberPc"
-          >
+        >
         </app-modal>
       </div>
     </div>
