@@ -16,7 +16,7 @@ As ideias/template/layout estão na pasta [.ideas](https://github.com/WilliamEle
 - [ ] 🔒 Validação dos campos do formulário(reservar) no front-end
 - [ ] 🔒 Implementar consulta automática no modal de reserva: o usuário informa o id e o sistema busca automaticamente o nome associado
 - [ ] 🔒 Botão "Visualizar" - modal com as reservas por mesa
-- [ ] 🔒 Criar um menu para visualizar - Ilhas/mesas | Mesas Disponíveis | Todas as Reservas
+- [x] 🔒 Criar - header menu de nav - Ilhas/mesas | Mesas Disponíveis | Todas as Reservas
 - [ ] 🔒 Visualizar todas as reservas agendadas (Menu/Header > "Todas as Reservas")
 - [ ] 🔒 Visualizar todas as ilhas/mesas disponíveis para reserva
 - [ ] 🔒 Criar um banco de dados para armazenar os usuarios, ilhas/mesas/equipamentos e reservas
