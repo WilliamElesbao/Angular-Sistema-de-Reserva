@@ -101,6 +101,10 @@ form {
   height: 100%;
 }
 
+form>hr{
+  border-color: var(--modal__content-divider);
+}
+
 /* Labels and input positioning */
 .content_name,
 .content_start_date,
@@ -245,5 +249,7 @@ textarea {
 }
 
 .btn-cancelar:hover {
-  background-color: var(--modal__content__form__footer__btn-cancel-color-hover);
+  background-color: var(--modal__content__form__footer__btn-cancel-bg-color-hover);
+  color:var(--modal__content__form__footer__btn-cancel-font-color-hover);
+  border-color: var(--modal__content__form__footer__btn-cancel-border-color-hover);
 }

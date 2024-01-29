@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core'; // Importa o decorador Injectable de @angular/core, usado para fornecer injeção de dependência ao serviço.
-import { HttpClient } from '@angular/common/http'; // Importa o módulo HttpClient para fazer requisições HTTP.
-import { Observable } from 'rxjs'; // Importa a classe Observable do pacote rxjs para trabalhar com fluxos de dados assíncronos.
-import { DataIsland } from '../models/dataIsland'; // Importa o modelo DataIsland que representa a estrutura dos dados da ilha.
-import { environment } from 'src/environments/environment'; // Importa o environment para acessarmos as variaveis de ambiente
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { SectorDetails } from '../models/sectorData';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root' // Marca a classe do serviço como injetável em todo o aplicativo (root), permitindo injeção em outros componentes e serviços sem definição explícita em um módulo.
+	providedIn: 'root', 
 })
 export class GetDataIslandService {
-  private dataUrl: string = environment.dataIsland; // URL para obter os dados da ilha a partir do arquivo de ambiente.
+	private sectorDataUrl: string = environment.sectorData;
 
-  constructor(private http: HttpClient) {} // Inicializa o serviço com o HttpClient para realizar requisições HTTP.
+	constructor(private http: HttpClient) {}
 
-  // Método para obter dados da ilha como um Observable do tipo Any.
-  getIslandData(): Observable<any> {
-    return this.http.get<DataIsland>(this.dataUrl); // Faz uma requisição GET para a URL especificada, esperando dados do tipo DataIsland.
-  }
+	getSectorData(): Observable<SectorDetails> {
+		return this.http.get<SectorDetails>(this.sectorDataUrl);
+	}
 }

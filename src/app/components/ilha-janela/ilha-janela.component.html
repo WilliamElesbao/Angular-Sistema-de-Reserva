@@ -1,32 +1,32 @@
 <div class="islands-set__container">
   <!-- Informações da Ilha (nome, número e quantidade de mesas por ilha) -->
-  <div *ngFor="let ilha of ilhas" class="island-and-tables__item">
+  <div *ngFor="let sector of sectors" class="island-and-tables__item">
     <!-- Detalhes da ilha: nome e número -->
     <div class="island-name-and-number">
-      <span>{{ ilha.nome }}</span>
+      <span>{{ sector.sectorName }}</span>
       <div class="circle-number">
-        <span>{{ ilha.id }}</span>
+        <span>{{ sector.sectorId }}</span>
       </div>
     </div>
 
     <!-- Conjunto de mesas para a ilha atual -->
     <div class="tables__container">
       <!-- Iteração sobre as mesas da ilha -->
-      <div *ngFor="let mesa of ilha.mesas" class="island-window__table">
+      <div *ngFor="let station of sector.stations" class="island-window__table">
         <!-- Detalhes da mesa: nome e número -->
-        <span class="table-title">{{ mesa.nome }} {{ mesa.id }}</span>
+        <span class="table-title">{{ station.stationName }} {{ station.stationId }}</span>
         <!-- Componente modal para exibir detalhes da mesa -->
         <span class="table-subtitle"
-          >{{ mesa.branch }}-{{ mesa.pcType }}-{{ mesa.serialNumberPc }}</span
+          >{{ station.branch }}-{{ station.pcType }}-{{ station.serialNumberPc }}</span
         >
         <app-modal
-          [ilhaNome]="ilha.nome"
-          [ilhaId]="ilha.id"
-          [mesaNome]="mesa.nome"
-          [mesaId]="mesa.id"
-          [branch]="mesa.branch"
-          [pcType]="mesa.pcType"
-          [serialNumberPc]="mesa.serialNumberPc"
+          [sectorName]="sector.sectorName"
+          [sectorId]="sector.sectorId"
+          [stationName]="station.stationName"
+          [stationId]="station.stationId"
+          [branch]="station.branch"
+          [pcType]="station.pcType"
+          [serialNumberPc]="station.serialNumberPc"
         >
         </app-modal>
       </div>

@@ -50,6 +50,7 @@
     --modal__content__form__footer__btn-save-bg-color: rgb(0, 0, 0);
     --modal__content__form__footer__btn-save-font-color: rgb(255, 255, 255);
     --modal__content__form__footer__btn-save-color-hover: rgb(33, 136, 55);
-    --modal__content__form__footer__btn-cancel-color-hover: rgb(198, 35, 51);
-
+    --modal__content__form__footer__btn-cancel-bg-color-hover: rgba(209, 209, 209, 0.747);
+    --modal__content__form__footer__btn-cancel-font-color-hover: rgba(184, 39, 39, 0.877);
+    --modal__content__form__footer__btn-cancel-border-color-hover: rgba(184, 39, 39, 0.877);
 }

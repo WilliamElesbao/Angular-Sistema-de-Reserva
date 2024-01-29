@@ -9,7 +9,7 @@ import { IlhaJanelaComponent } from './components/ilha-janela/ilha-janela.compon
 import { ModalComponent } from './components/modal/modal.component';
 import { IndexComponent } from './pages/index/index.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LocalStorageService } from './services/local-storage.service'
+import { LocalStorageService } from './services/local-storage.service';
 import { FormsModule } from '@angular/forms';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { AllReservationComponent } from './components/all-reservation/all-reservation.component';
@@ -35,7 +35,7 @@ import { AvailableTablesComponent } from './components/available-tables/availabl
     HttpClientModule,
     FormsModule,
   ],
-  providers: [LocalStorageService],
+  providers: [LocalStorageService,ModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
