@@ -1,40 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataIslandService } from 'src/app/services/get-island-data.service';
-
-// Interfaces para definir a estrutura de Mesa e Ilha
-interface Mesa {
-  id: number;
-  nome: string;
-  branch?: string;
-  pcType?: string;
-  serialNumberPc?: string;
-}
-
-interface Ilha {
-  id: number;
-  nome: string;
-  mesas: Mesa[];
-}
+import { Sector } from '../../models/sectorAndStationInterface';
 
 @Component({
-  selector: 'app-ilha-central',
-  templateUrl: './ilha-central.component.html',
-  styleUrls: ['./ilha-central.component.css', 'responsive.component.css'],
+	selector: 'app-ilha-central',
+	templateUrl: './ilha-central.component.html',
+	styleUrls: ['./ilha-central.component.css'],
 })
 export class IlhaCentralComponent implements OnInit {
-  ilhas: Ilha[] = []; // Array para armazenar dados das ilhas
+	sectors: Sector[] = [];
 
-  constructor(private getDataIslandService: GetDataIslandService) {}
+	constructor(private getDataIslandService: GetDataIslandService) {}
 
-  ngOnInit(): void {
-    this.getIlhasData(); // Obtém os dados das ilhas ao inicializar o componente
-  }
+	ngOnInit() {
+		this.getSectorsData();
+	}
 
-  // Obtém os dados das ilhas por meio do serviço GetDataIslandService
-  getIlhasData() {
-    this.getDataIslandService.getIslandData().subscribe((data) => {
-      this.ilhas = data.dados_ilha_central; // Atualiza o array ilhas com os dados recuperados
-      // console.log(this.ilhas); // Exibe as ilhas recuperadas no console
-    });
-  }
+	getSectorsData() {
+		this.getDataIslandService.getSectorData().subscribe((data) => {
+			this.sectors = data.sectors.slice(0, 5); // Atualiza o array ilhas com os dados recuperados
+		});
+	}
 }

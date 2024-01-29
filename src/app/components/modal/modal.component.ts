@@ -1,68 +1,75 @@
 // modal.component.ts
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LocalStorageService } from '../../services/local-storage.service';
-
-interface FormData {
-  nome: string;
-  startDate: any;
-  endDate: any;
-  frequency: any;
-  daysOfTheWeekSelected: any[];
-  comment: string;
-}
+import {
+	Reservation,
+	BookingDetails,
+	HardwareDetails,
+} from 'src/app/models/reservationInterface';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css'],
+	selector: 'app-modal',
+	templateUrl: './modal.component.html',
+	styleUrls: ['./modal.component.css'],
 })
-export class ModalComponent {
-  btnContent: string = 'Reservar';
-  titleModal: string = 'Reservar';
-  showModal: boolean = false;
-  diasDaSemanaSelecionados: string[] = ['', '', '', '', ''];
+export class ModalComponent implements OnInit {
+	btnContent: string = 'Reservar';
+	titleModal: string = 'Reservar';
+	showModal: boolean = false;
+	daysOfTheWeekSelected: string[] = ['', '', '', '', ''];
 
-  @Input() ilhaNome: string | undefined;
-  @Input() ilhaId: number | undefined;
-  @Input() mesaNome: string | undefined;
-  @Input() mesaId: number | undefined;
-  @Input() branch: string | undefined;
-  @Input() pcType: string | undefined;
-  @Input() serialNumberPc: string | undefined;
+	@Input() sectorId: number = 0;
+	@Input() sectorName: string = '';
+	@Input() stationId: number = 0;
+	@Input() stationName: string = '';
+	@Input() branch: string = '';
+	@Input() pcType: string = '';
+	@Input() serialNumberPc: string = '';
 
-  formData: FormData = {
-    nome: '',
-    startDate: '',
-    endDate: '',
-    frequency: 'none',
-    daysOfTheWeekSelected: this.diasDaSemanaSelecionados,
-    comment: '',
-  };
+	formData: BookingDetails = {
+		name: '',
+		startDate: '',
+		endDate: '',
+		frequency: 'none',
+		daysOfTheWeekSelected: this.daysOfTheWeekSelected,
+		comment: '',
+	};
 
-  constructor(private localStorageService: LocalStorageService) {}
+	constructor(private localStorageService: LocalStorageService) {}
 
-  capturarDadosFormulario() {
-    const diasSelecionados: string[] = [];
-    const diasDaSemana = ['seg', 'ter', 'qua', 'qui', 'sex'];
+	ngOnInit() {}
 
-    for (const [index, selected] of this.diasDaSemanaSelecionados.entries()) {
-      diasSelecionados.push(selected ? diasDaSemana[index] : '');
-    }
+	capturarDadosFormulario() {
+		const selectedDays: string[] = [];
+		const daysOfTheWeek = ['seg', 'ter', 'qua', 'qui', 'sex'];
+		for (const [index, selected] of this.daysOfTheWeekSelected.entries()) {
+			selectedDays.push(selected ? daysOfTheWeek[index] : '');
+		}
+		this.formData.daysOfTheWeekSelected = selectedDays;
+		const newReservation: Reservation = {
+			sectorId: this.sectorId,
+			stationId: this.stationId,
+			bookingDetails: [this.formData],
+			sectorName: this.sectorName,
+			stationName: this.stationName,
+			hardware: [
+				{
+					branch: this.branch,
+					pcType: this.pcType,
+					serialNumberPc: this.serialNumberPc,
+				},
+			],
+		};
 
-    this.formData.daysOfTheWeekSelected = diasSelecionados;
+		this.localStorageService.saveReservation(newReservation);
+		this.showModal = false;
+	}
 
-    this.localStorageService.saveFormData('reservas', {
-      ...this.formData,
-      infoLocal: `${this.ilhaNome} ${this.ilhaId} - ${this.mesaNome} ${this.mesaId} - ${this.branch}-${this.pcType}-${this.serialNumberPc}`,
-    });
-    this.showModal = false;
-  }
+	openModal() {
+		this.showModal = true;
+	}
 
-  openModal() {
-    this.showModal = true;
-  }
-
-  hideModal() {
-    this.showModal = false;
-  }
+	hideModal() {
+		this.showModal = false;
+	}
 }
