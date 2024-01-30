@@ -23,19 +23,28 @@
 		<div class="content__forms">
 			<form (ngSubmit)="capturarDadosFormulario()">
 				<!-- Campo Nome -->
-				<div class="content_name">
-					<label for="nome">Nome:</label>
-					<input
-						type="text"
-						name="nome"
-						id="nome"
-						autocomplete="on"
-						[(ngModel)]="formData.name"
-						placeholder="Digite seu nome..."
-					/>
+				<div class="name__container">
+					<div class="content_name">
+						<label for="nome">Nome:</label>
+						<input
+							type="text"
+							name="nome"
+							id="nome"
+							autocomplete="on"
+							[(ngModel)]="formData.name"
+							placeholder="Digite seu nome..."
+							#nomeInput="ngModel"
+						/>
+					</div>
+					<div
+						*ngIf="nomeInput.touched && !isNameValid()"
+						class="error-message"
+					>
+						Por favor, insira um nome válido.
+					</div>
+					<hr />
 				</div>
 
-				<hr />
 				<!-- Campos de data de início e fim -->
 				<div class="content_start_date">
 					<label for="startDate">Data (início):</label>
@@ -44,7 +53,33 @@
 						name="data-inicio"
 						id="startDate"
 						[(ngModel)]="formData.startDate"
+						#startDateInput="ngModel"
 					/>
+					<div
+						*ngIf="
+							nomeInput.touched &&
+							isNameValid() &&
+							startDateInput.touched &&
+							startDateInput.hasError('required')
+						"
+						class="error-message"
+					>
+						Campo obrigatório.
+					</div>
+					<div
+						*ngIf="
+							nomeInput.touched &&
+							isNameValid() &&
+							startDateInput.touched &&
+							startDateInput.hasError('required') === false &&
+							!isStartDateValid()
+						"
+						class="error-message"
+					>
+						A Data/Hora inicial deve ser superior à data atual ({{
+							formData.startDate | date : "dd/MM/yyyy HH:mm"
+						}})
+					</div>
 				</div>
 				<hr />
 				<div class="content_end_date">
@@ -54,7 +89,31 @@
 						name="data-fim"
 						id="endDate"
 						[(ngModel)]="formData.endDate"
+						#endDateInput="ngModel"
 					/>
+					<div
+						*ngIf="
+							nomeInput.touched &&
+							isNameValid() &&
+							endDateInput.touched &&
+							endDateInput.hasError('required')
+						"
+						class="error-message"
+					>
+						Campo obrigatório.
+					</div>
+					<div
+						*ngIf="
+							nomeInput.touched &&
+							isNameValid() &&
+							endDateInput.touched &&
+							endDateInput.hasError('required') === false &&
+							(!isEndDateValid() || !areDatesValid())
+						"
+						class="error-message"
+					>
+						A Data/hora final deve ser superior à data inicial.
+					</div>
 				</div>
 
 				<hr />
@@ -66,17 +125,20 @@
 						id="repeticao"
 						name="tipo-repeticao"
 						[(ngModel)]="formData.frequency"
+						(change)="onNgModelChange()"
 					>
-						<option value="none" selected>Nenhum</option>
+						<option value="none">Nenhum</option>
 						<option value="diariamente">Diariamente</option>
 						<option value="semanalmente">Semanalmente</option>
 						<option value="mensalmente">Mensalmente</option>
 					</select>
+					<div *ngIf="isRepetitionInvalid()" class="error-message">
+						Pelo menos um dia da semana deve ser selecionado.
+					</div>
 				</div>
 
 				<hr />
-				<!-- Dias da semana (caso queira utilizar Sábado e domingo descomentar linhas (62, 63 e 70, 71)) -->
-				<div class="content_days_of_the_week">
+				<div *ngIf="isSelectionValid()" class="content_days_of_the_week">
 					<span>Dias da semana:</span>
 					<div class="days-of-the-week__container">
 						<table>
@@ -85,8 +147,10 @@
 							<th>Quarta</th>
 							<th>Quinta</th>
 							<th>Sexta</th>
-							<!-- <th>Sábado</th>
-              <th>Domingo</th> -->
+							<!--
+		<th>Sábado</th>
+		<th>Domingo</th>
+		-->
 							<tr>
 								<td>
 									<input
@@ -96,6 +160,7 @@
 										name="days-of-week"
 										value="monday"
 										[(ngModel)]="daysOfTheWeekSelected[0]"
+										(change)="onNgModelChange()"
 									/>
 								</td>
 								<td>
@@ -106,6 +171,7 @@
 										name="days-of-week"
 										value="tuesday"
 										[(ngModel)]="daysOfTheWeekSelected[1]"
+										(change)="onNgModelChange()"
 									/>
 								</td>
 								<td>
@@ -116,6 +182,7 @@
 										name="days-of-week"
 										value="wednesday"
 										[(ngModel)]="daysOfTheWeekSelected[2]"
+										(change)="onNgModelChange()"
 									/>
 								</td>
 								<td>
@@ -126,6 +193,7 @@
 										name="days-of-week"
 										value="thursday"
 										[(ngModel)]="daysOfTheWeekSelected[3]"
+										(change)="onNgModelChange()"
 									/>
 								</td>
 								<td>
@@ -136,16 +204,21 @@
 										name="days-of-week"
 										value="friday"
 										[(ngModel)]="daysOfTheWeekSelected[4]"
+										(change)="onNgModelChange()"
 									/>
 								</td>
-								<!-- <td><input class="form-check-input" type="checkbox" id="saturday" name="days-of-week" value="saturday"></td>
-                <td><input class="form-check-input" type="checkbox" id="sunday" name="days-of-week" value="sunday"></td> -->
+								<!--
+		  <td><input class="form-check-input" type="checkbox" id="saturday" name="days-of-week" value="saturday"></td>
+		  <td><input class="form-check-input" type="checkbox" id="sunday" name="days-of-week" value="sunday"></td> 
+		  -->
 							</tr>
 						</table>
 					</div>
 				</div>
 
-				<hr />
+				<hr *ngIf="isSelectionValid()" />
+				<!-- até aqui -->
+
 				<!-- commment field -->
 				<div class="content_comment">
 					<label for="comentario">Comentário:</label>
@@ -164,7 +237,9 @@
 						<button type="button" class="btn-cancelar" (click)="hideModal()">
 							Cancel
 						</button>
-						<button type="submit" class="btn-salvar">Save</button>
+						<button *ngIf="isFormValid()" type="submit" class="btn-salvar">
+							Save
+						</button>
 					</div>
 				</footer>
 			</form>
