@@ -1,108 +1,108 @@
 * {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 /* Estilização do botão de reserva */
 .btn-reservation {
-  border: 1px solid black;
-  border-radius: 18px;
-  padding: .25rem .65rem;
-  color: #1D1D1F;
-  font-size: 13px;
-  text-decoration: none;
-  transition: .3s ease;
-  cursor: pointer;
+	border: 1px solid black;
+	border-radius: 18px;
+	padding: 0.25rem 0.65rem;
+	color: #1d1d1f;
+	font-size: 13px;
+	text-decoration: none;
+	transition: 0.3s ease;
+	cursor: pointer;
 }
 
 /* Efeito hover do botão */
 .btn-reservation:hover {
-  background-color: #1D1D1F;
-  color: #F5F5F7;
+	background-color: #1d1d1f;
+	color: #f5f5f7;
 }
 
 /* Efeito active do botão */
 .btn-reservation:active {
-  position: relative;
-  top: 1px;
-
+	position: relative;
+	top: 1px;
 }
 
 .modal__container {
-  /* border: red 3px solid; */
-  display: none;
-  position: fixed;
-  z-index: 5000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: var(--bg-color-modal);
+	/* border: red 3px solid; */
+	display: none;
+	position: fixed;
+	z-index: 5000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: var(--bg-color-modal);
 }
 
 /* Classe para exibir o modal */
 .show {
-  display: block;
+	display: block;
 }
 
 /* Estilização do conteúdo do modal */
 .modal__content {
-  /* border: rgb(45, 183, 218) .2rem solid; */
-  border-radius: 18px;
-  display: flex;
-  flex-direction: column;
-  width: 850px;
-  height: 750px;
-  padding: 0 1rem;
-  margin: 5rem auto;
-  background-color: var(--bg-color-modal__content);
+	/* border: rgb(45, 183, 218) .2rem solid; */
+	border-radius: 18px;
+	display: flex;
+	flex-direction: column;
+	width: 800px;
+	/* height: 750px; */
+	padding: 0 1rem;
+	margin: 3rem auto;
+	background-color: var(--bg-color-modal__content);
 }
 
 .modal__header {
-  /* border: 2px solid red; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.2rem;
-  align-items: center;
-  margin-top: .5rem;
+	/* border: 2px solid red; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1.2rem;
+	align-items: center;
+	margin-top: 0.5rem;
 }
 
-.modal__title>span {
-  color: var(--modal__content__title-color);
-  font-size: var(--modal__content__title-font-size);
+.modal__title > span {
+	color: var(--modal__content__title-color);
+	font-size: var(--modal__content__title-font-size);
 }
 
-.modal__subtitle>span {
-  color: var(--modal__content__subtitle-color);
-  font-size: var(--modal__content__subtitle-font-size);
+.modal__subtitle > span {
+	color: var(--modal__content__subtitle-color);
+	font-size: var(--modal__content__subtitle-font-size);
 }
 
-.modal__header>hr {
-  width: 45%;
-  border-color: var(--modal__content-divider);
+.modal__header > hr {
+	width: 45%;
+	border-color: var(--modal__content-divider);
 }
 
 /* Estilização dos formulários */
 .content__forms {
-  /* border: 2px solid coral; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.5rem;
-  padding: .5rem;
-  width: 100%;
-  height: 100%;
+	/* border: 2px solid coral; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 1.5rem;
+	padding: 0.5rem;
+	width: 100%;
+	height: 100%;
 }
 
 /* Especifica o tamanho do formulário */
 form {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
-form>hr{
-  border-color: var(--modal__content-divider);
+form > hr,
+.name__container > hr {
+	border-color: var(--modal__content-divider);
 }
 
 /* Labels and input positioning */
@@ -112,144 +112,171 @@ form>hr{
 .content_frequency,
 .content_days_of_the_week,
 .content_comment {
-  /* border: red 1px solid; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 1rem 0;
+	/* border: red 1px solid; */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 1rem 0;
 }
 
 /* Labels properties */
-.content_name>label,
-.content_start_date>label,
-.content_end_date>label,
-.content_frequency>label,
-.content_days_of_the_week>span,
-.content_comment>label {
-  /* border: red 1px solid; */
-  width: 20%;
-  color: var(--modal__content__form__label-color);
-  font-size: var(--modal__content__form__label-font-size);
-  font-weight: var(--modal__content__form__label-font-weight);
+.content_name > label,
+.content_start_date > label,
+.content_end_date > label,
+.content_frequency > label,
+.content_days_of_the_week > span,
+.content_comment > label {
+	/* border: red 1px solid; */
+	width: 20%;
+	color: var(--modal__content__form__label-color);
+	font-size: var(--modal__content__form__label-font-size);
+	font-weight: var(--modal__content__form__label-font-weight);
 }
 
 /* Input properties */
-.content_name>input,
-.content_start_date>input,
-.content_end_date>input,
+.content_name > input,
+.content_start_date > input,
+.content_end_date > input,
 select,
 textarea {
-  border: 1px solid var(--modal__content__form__input-border-color);
-  border-radius: var(--modal__content__form__input-border-radius);
-  color: var(--modal__content__form__input-color);
-  padding: .5rem;
+	border: 1px solid var(--modal__content__form__input-border-color);
+	border-radius: var(--modal__content__form__input-border-radius);
+	color: var(--modal__content__form__input-color);
+	padding: 0.5rem;
 }
 
 /* Input size: 50% */
-.content_name>input,
+.content_name > input,
 textarea {
-  width: 50%;
+	width: 50%;
 }
 
 /* Input size: 25% */
-.content_start_date>input,
-.content_end_date>input,
+.content_start_date > input,
+.content_end_date > input,
 select {
-  width: 25%;
+	width: 25%;
 }
 
 /* Estilização da tabela de dias da semana */
 .content_days_of_the_week {
-  /* border: red 1px solid; */
-  display: flex;
-  flex-direction: row;
+	/* border: red 1px solid; */
+	display: flex;
+	flex-direction: row;
 }
 
 .days-of-the-week__container {
-  /* border: 1px solid blue; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 75%;
+	/* border: 1px solid blue; */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 75%;
 }
 
-table>th {
-  /* border: red 1px solid; */
-  border-radius: 8px 0 0px 0;
-  background-color: var(--modal__content__form__table__th-bg-color);
-  color: var(--modal__content__form__table__th-color);
-  font-weight: var(--modal__content__form__table__th-font-weight);
-  padding: .25rem 1rem;
-  width: 10rem;
+table > th {
+	/* border: red 1px solid; */
+	border-radius: 8px 0 0px 0;
+	background-color: var(--modal__content__form__table__th-bg-color);
+	color: var(--modal__content__form__table__th-color);
+	font-weight: var(--modal__content__form__table__th-font-weight);
+	padding: 0.25rem 1rem;
+	width: 10rem;
 }
 
-table>tr>td {
-  /* border: blue 1px solid; */
-  text-align: center;
-  background-color: var(--modal__content__form__table__tr__td-bg-color);
-  border-radius: 0 0px 8px 0px;
+table > tr > td {
+	/* border: blue 1px solid; */
+	text-align: center;
+	background-color: var(--modal__content__form__table__tr__td-bg-color);
+	border-radius: 0 0px 8px 0px;
 }
 
 textarea {
-  resize: none;
-  height: var(--modal__content__form__table__textarea-height);
-  border-radius: .25rem;
-  padding: .5rem;
+	resize: none;
+	height: var(--modal__content__form__table__textarea-height);
+	border-radius: 0.25rem;
+	padding: 0.5rem;
 }
 
 .footer-modal {
-  /* border: red 1px solid; */
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  width: 100%;
-  margin-top: 4rem;
+	/* border: red 1px solid; */
+	display: flex;
+	justify-content: flex-end;
+	gap: 1rem;
+	width: 100%;
+	margin-top: 4rem;
 }
 
 /* Estilização dos botões no footer */
-.footer-modal>button {
-  border-radius: var(--modal__content__form__footer__btn-border-radius);
-  padding: .45rem 0.5rem;
-  width: 10rem;
+.footer-modal > button {
+	border-radius: var(--modal__content__form__footer__btn-border-radius);
+	padding: 0.45rem 0.5rem;
+	width: 10rem;
 }
 
 /* Estilização e efeito dos botões cancelar e salvar */
 .btn-cancelar,
 .btn-salvar {
-  border: 1px solid var(--modal__content__form__footer__btn-border-color);
-  font-size: var(--modal__content__form__footer__btn-font-size);
-  cursor: pointer;
-  transition: .3s ease;
+	border: 1px solid var(--modal__content__form__footer__btn-border-color);
+	font-size: var(--modal__content__form__footer__btn-font-size);
+	cursor: pointer;
+	transition: 0.3s ease;
 }
 
 .btn-cancelar:active,
 .btn-salvar:active {
-  position: relative;
-  top: 1px;
+	position: relative;
+	top: 1px;
 }
 
 .btn-salvar:hover,
 .btn-cancelar:hover {
-  position: relative;
-  top: 1px;
+	position: relative;
+	top: 1px;
 }
 
 /* Estilização específica e efeito dos botões cancelar e salvar */
 .btn-cancelar {
-  background-color: var();
+	background-color: var();
 }
 
 .btn-salvar {
-  background-color: var(--modal__content__form__footer__btn-save-bg-color);
-  color: var(--modal__content__form__footer__btn-save-font-color);
+	background-color: var(--modal__content__form__footer__btn-save-bg-color);
+	color: var(--modal__content__form__footer__btn-save-font-color);
 }
 
 .btn-salvar:hover {
-  background-color: var(--modal__content__form__footer__btn-save-color-hover);
+	background-color: var(--modal__content__form__footer__btn-save-color-hover);
 }
 
 .btn-cancelar:hover {
-  background-color: var(--modal__content__form__footer__btn-cancel-bg-color-hover);
-  color:var(--modal__content__form__footer__btn-cancel-font-color-hover);
-  border-color: var(--modal__content__form__footer__btn-cancel-border-color-hover);
+	background-color: var(
+		--modal__content__form__footer__btn-cancel-bg-color-hover
+	);
+	color: var(--modal__content__form__footer__btn-cancel-font-color-hover);
+	border-color: var(
+		--modal__content__form__footer__btn-cancel-border-color-hover
+	);
+}
+
+.error-message {
+	border: 1px solid rgb(134, 19, 19);
+	background-color: rgba(255, 142, 142, 0.412);
+	border-radius: 0.5rem;
+	width: 40%;
+	padding: 0.5rem;
+	margin: 0.5rem auto;
+	text-align: center;
+	color: rgba(170, 18, 18, 0.623);
+	font-size: 0.85rem;
+}
+
+.success-message {
+	border: 1px solid rgb(19, 134, 19);
+	background-color: rgba(142, 255, 142, 0.412);
+	border-radius: 0.5rem;
+	width: 70%;
+	padding: 0.5rem;
+	margin: 1rem auto;
+	text-align: center;
+	color: rgba(8, 109, 8, 0.712);
 }
