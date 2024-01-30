@@ -270,7 +270,7 @@ textarea {
 	font-size: 0.85rem;
 }
 
-.success-message {
+/* .success-message {
 	border: 1px solid rgb(19, 134, 19);
 	background-color: rgba(142, 255, 142, 0.412);
 	border-radius: 0.5rem;
@@ -279,4 +279,4 @@ textarea {
 	margin: 1rem auto;
 	text-align: center;
 	color: rgba(8, 109, 8, 0.712);
-}
+} */
