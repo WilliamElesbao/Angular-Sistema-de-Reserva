@@ -2,7 +2,6 @@
 	background-color: transparent;
 }
 
-/* Estilização do botão de reserva */
 .btn-reservation {
 	border: 1px solid black;
 	border-radius: 18px;
@@ -14,20 +13,17 @@
 	cursor: pointer;
 }
 
-/* Efeito hover do botão */
 .btn-reservation:hover {
 	background-color: #1d1d1f;
 	color: #f5f5f7;
 }
 
-/* Efeito active do botão */
 .btn-reservation:active {
 	position: relative;
 	top: 1px;
 }
 
 .modal__container {
-	/* border: red 3px solid; */
 	display: none;
 	position: fixed;
 	z-index: 5000;
@@ -39,12 +35,10 @@
 	background-color: var(--bg-color-modal);
 }
 
-/* Classe para exibir o modal */
 .show {
 	display: block;
 }
 
-/* Estilização do conteúdo do modal */
 .modal__content {
 	/* border: rgb(45, 183, 218) .2rem solid; */
 	border-radius: 18px;
@@ -82,7 +76,6 @@
 	border-color: var(--modal__content-divider);
 }
 
-/* Estilização dos formulários */
 .content__forms {
 	/* border: 2px solid coral; */
 	display: flex;
@@ -105,35 +98,30 @@ form > hr,
 	border-color: var(--modal__content-divider);
 }
 
-/* Labels and input positioning */
 .content_name,
 .content_start_date,
 .content_end_date,
 .content_frequency,
 .content_days_of_the_week,
 .content_comment {
-	/* border: red 1px solid; */
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	margin: 1rem 0;
 }
 
-/* Labels properties */
 .content_name > label,
 .content_start_date > label,
 .content_end_date > label,
 .content_frequency > label,
 .content_days_of_the_week > span,
 .content_comment > label {
-	/* border: red 1px solid; */
 	width: 20%;
 	color: var(--modal__content__form__label-color);
 	font-size: var(--modal__content__form__label-font-size);
 	font-weight: var(--modal__content__form__label-font-weight);
 }
 
-/* Input properties */
 .content_name > input,
 .content_start_date > input,
 .content_end_date > input,
@@ -145,28 +133,22 @@ textarea {
 	padding: 0.5rem;
 }
 
-/* Input size: 50% */
 .content_name > input,
 textarea {
 	width: 50%;
 }
 
-/* Input size: 25% */
 .content_start_date > input,
 .content_end_date > input,
 select {
 	width: 25%;
 }
-
-/* Estilização da tabela de dias da semana */
 .content_days_of_the_week {
-	/* border: red 1px solid; */
 	display: flex;
 	flex-direction: row;
 }
 
 .days-of-the-week__container {
-	/* border: 1px solid blue; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -174,7 +156,6 @@ select {
 }
 
 table > th {
-	/* border: red 1px solid; */
 	border-radius: 8px 0 0px 0;
 	background-color: var(--modal__content__form__table__th-bg-color);
 	color: var(--modal__content__form__table__th-color);
@@ -184,7 +165,6 @@ table > th {
 }
 
 table > tr > td {
-	/* border: blue 1px solid; */
 	text-align: center;
 	background-color: var(--modal__content__form__table__tr__td-bg-color);
 	border-radius: 0 0px 8px 0px;
@@ -198,7 +178,6 @@ textarea {
 }
 
 .footer-modal {
-	/* border: red 1px solid; */
 	display: flex;
 	justify-content: flex-end;
 	gap: 1rem;
@@ -206,14 +185,12 @@ textarea {
 	margin-top: 4rem;
 }
 
-/* Estilização dos botões no footer */
 .footer-modal > button {
 	border-radius: var(--modal__content__form__footer__btn-border-radius);
 	padding: 0.45rem 0.5rem;
 	width: 10rem;
 }
 
-/* Estilização e efeito dos botões cancelar e salvar */
 .btn-cancelar,
 .btn-salvar {
 	border: 1px solid var(--modal__content__form__footer__btn-border-color);
@@ -227,18 +204,14 @@ textarea {
 	position: relative;
 	top: 1px;
 }
-
 .btn-salvar:hover,
 .btn-cancelar:hover {
 	position: relative;
 	top: 1px;
 }
-
-/* Estilização específica e efeito dos botões cancelar e salvar */
 .btn-cancelar {
 	background-color: var();
 }
-
 .btn-salvar {
 	background-color: var(--modal__content__form__footer__btn-save-bg-color);
 	color: var(--modal__content__form__footer__btn-save-font-color);
@@ -257,7 +230,6 @@ textarea {
 		--modal__content__form__footer__btn-cancel-border-color-hover
 	);
 }
-
 .error-message {
 	border: 1px solid rgb(134, 19, 19);
 	background-color: rgba(255, 142, 142, 0.412);
@@ -268,15 +240,4 @@ textarea {
 	text-align: center;
 	color: rgba(170, 18, 18, 0.623);
 	font-size: 0.85rem;
-}
-
-.success-message {
-	border: 1px solid rgb(19, 134, 19);
-	background-color: rgba(142, 255, 142, 0.412);
-	border-radius: 0.5rem;
-	width: 70%;
-	padding: 0.5rem;
-	margin: 1rem auto;
-	text-align: center;
-	color: rgba(8, 109, 8, 0.712);
 }
