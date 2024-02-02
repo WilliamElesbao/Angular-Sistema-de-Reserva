@@ -269,17 +269,3 @@ textarea {
 	color: var(--modal__content__form__error-message-font-color);
 	font-size: 0.85rem;
 }
-<<<<<<< HEAD
-
-/* .success-message {
-	border: 1px solid rgb(19, 134, 19);
-	background-color: rgba(142, 255, 142, 0.412);
-	border-radius: 0.5rem;
-	width: 70%;
-	padding: 0.5rem;
-	margin: 1rem auto;
-	text-align: center;
-	color: rgba(8, 109, 8, 0.712);
-} */
-=======
->>>>>>> 6d4494c62f7519699dbbf1d181b563ff6f4c4bf6
