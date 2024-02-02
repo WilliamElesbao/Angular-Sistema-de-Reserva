@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-color-main);
+  color: var(--font-color-title);
+  font-family: var(--font-family-all);
+}
