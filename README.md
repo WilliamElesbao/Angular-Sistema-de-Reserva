@@ -25,7 +25,7 @@ As ideias/template/layout estão na pasta [.ideas](https://github.com/WilliamEle
 - [ ] 🔒 Visualizar reservas por id do usuário
 - [ ] 🔒 Implementar níveis de usuário para restrições de acesso
 - [ ] 🔒 Desenvolver uma API para operações CRUD no banco de dados
-- [ ] 🔒 Sessão About (me) Developer
+- [x] 🔓 Sessão About (me) Developer
 
 ## 📝Requisitos📋
 
