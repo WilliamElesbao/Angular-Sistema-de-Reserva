@@ -8,23 +8,24 @@ As ideias/template/layout estão na pasta [.ideas](https://github.com/WilliamEle
 
 ## ⚙️Recursos/Features a serem Desenvolvidos 🛠️
 
-- [x] 🔓 Layout para disposição das ilhas/mesas
-
-- [x] 🔓 Modal para realizar as reservas de ilhas/mesas
-- [x] 🔓 Botão "Reservar" - modal/form para realizar a reserva da mesa
-- [ ] 🔒 Tornar dinâmico o agendamento de reservas por semana ou mês, permitindo ao usuário marcar dias específicos da semana
-- [ ] 🔒 Validação dos campos do formulário(reservar) no front-end
+- [x] 🔓 Layout da disposição dos setores e s stations
+- [x] 🔓 Header(nav) - Disposição dos Setores e Stations | Available Stations | All Reservations
+- [x] 🔓 Modal/Form para realizar a reserva
+- [x] 🔓 Botão "Reservar" - Modal/Form para realizar
+- [x] 🔓 Agendamento dinâmico (default, daily, weekly, monthly), permitindo ao usuário marcar dias específicos da semana (weekly e monthly)
+- [x] 🔓 Validação dos campos do formulário(reservar) no front-end e back-end
+- [x] 🔓 All Reservations - ordernar de forma crescente (setores e stations)
+- [x] 🔓 Visualizar todas as reservas agendadas (Header/Menu > "All Reservations")
+- [ ] 🔒 Visualizar todas os setores/stations disponíveis para reserva
 - [ ] 🔒 Implementar consulta automática no modal de reserva: o usuário informa o id e o sistema busca automaticamente o nome associado
-- [ ] 🔒 Botão "Visualizar" - modal com as reservas por mesa
-- [x] 🔒 Criar - header menu de nav - Ilhas/mesas | Mesas Disponíveis | Todas as Reservas
-- [ ] 🔒 Visualizar todas as reservas agendadas (Menu/Header > "Todas as Reservas")
-- [ ] 🔒 Visualizar todas as ilhas/mesas disponíveis para reserva
-- [ ] 🔒 Criar um banco de dados para armazenar os usuarios, ilhas/mesas/equipamentos e reservas
+- [ ] 🔒 Botão "Visualizar" - modal com as reservas por stations
+- [ ] 🔒 Criar um banco de dados para armazenar os usuarios, setores/stations/hardwares e reservas
 - [ ] 🔒 Estabelecer conexão com o banco de dados
 - [ ] 🔒 Criar página de login para acesso ao sistema
 - [ ] 🔒 Visualizar reservas por id do usuário
 - [ ] 🔒 Implementar níveis de usuário para restrições de acesso
 - [ ] 🔒 Desenvolver uma API para operações CRUD no banco de dados
+- [ ] 🔒 Sessão About (me) Developer
 
 ## 📝Requisitos📋
 
