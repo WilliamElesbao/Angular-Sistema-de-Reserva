@@ -1,8 +1,7 @@
-import { Component, OnInit,Input } from '@angular/core';
-import { GetDataIslandService } from 'src/app/services/get-island-data.service';
+import { Component, OnInit } from '@angular/core';
+import { GetDataIslandService } from 'src/app/services/get-sector-data.service';
 import { Sector } from '../../models/sectorAndStationInterface';
-import { Reservation } from '../../models/reservationInterface';
-
+import { Reservation } from '../../models/reservation.model';
 
 @Component({
 	selector: 'app-ilha-central',
@@ -11,17 +10,17 @@ import { Reservation } from '../../models/reservationInterface';
 })
 export class IlhaCentralComponent implements OnInit {
 	sectors: Sector[] = [];
-	dadosRecuperados: Reservation[] = []; // Adicione essa linha
+	reservations: Reservation[] = [];
+
 	constructor(private getDataIslandService: GetDataIslandService) {}
 
 	ngOnInit() {
 		this.getSectorsData();
 	}
-	
+
 	getSectorsData() {
-		console.log('aasdada')
 		this.getDataIslandService.getSectorData().subscribe((data) => {
-			this.sectors = data.sectors.slice(0, 5); // Atualiza o array ilhas com os dados recuperados
+			this.sectors = data.sectors.slice(0, 5);
 		});
 	}
 }

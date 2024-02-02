@@ -53,4 +53,7 @@
     --modal__content__form__footer__btn-cancel-bg-color-hover: rgba(209, 209, 209, 0.747);
     --modal__content__form__footer__btn-cancel-font-color-hover: rgba(184, 39, 39, 0.877);
     --modal__content__form__footer__btn-cancel-border-color-hover: rgba(184, 39, 39, 0.877);
+    --modal__content__form__error-message-border-color: rgb(134, 19, 19);
+    --modal__content__form__error-message-bg-color: rgba(255, 142, 142, 0.412);
+    --modal__content__form__error-message-font-color: rgba(170, 18, 18, 0.623);
 }

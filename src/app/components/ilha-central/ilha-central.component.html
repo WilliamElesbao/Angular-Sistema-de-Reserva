@@ -1,27 +1,20 @@
-<div class="island-set__container">
-	<div *ngFor="let sector of sectors" class="island-and-tables__item">
-		<div class="island-name-and-number">
+<div class="sectors-top-container">
+	<div *ngFor="let sector of sectors" class="sectors">
+		<div class="sector-title">
 			<span>{{ sector.sectorName }}</span>
 			<div class="circle-number">
 				<span>{{ sector.sectorId }}</span>
 			</div>
 		</div>
-		<div class="tables__container">
-			<div
-				*ngFor="let station of sector.stations"
-				class="island-central__table"
-			>
-				<span class="table-title"
-					>{{ station.stationName }} {{ station.stationId }}</span
-				>
-				<!-- Componente modal para exibir detalhes da mesa -->
-				<span class="table-subtitle"
-					>{{ station.branch }}-{{ station.pcType }}-{{
-						station.serialNumberPc
-					}}</span
-				>
+		<div class="stations-container">
+			<div *ngFor="let station of sector.stations" class="sector-top-stations">
+				<span class="station-title">{{ station.stationName }} {{ station.stationId }}</span>
+				<!-- Componente modal para exibir detalhes da station -->
+				<span class="station-subtitle">{{ station.branch }}-{{ station.pcType }}-{{ station.serialNumberPc }}</span>
 				<app-modal
-				[dadosRecuperados]="dadosRecuperados" [sectorName]="sector.sectorName" [sectorId]="sector.sectorId"
+					[reservations]="reservations"
+					[sectorName]="sector.sectorName"
+					[sectorId]="sector.sectorId"
 					[sectorName]="sector.sectorName"
 					[sectorId]="sector.sectorId"
 					[stationName]="station.stationName"

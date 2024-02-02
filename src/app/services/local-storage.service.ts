@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-// import { SectorDetails } from '../models/sectorData';
-import { Reservation } from '../models/reservationInterface';
+import { Reservation } from '../models/reservation.model';
 
 @Injectable({
 	providedIn: 'root',

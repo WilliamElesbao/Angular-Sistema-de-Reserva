@@ -1,3 +1,16 @@
+export interface Sector {
+	sectorId: number;
+	sectorName: string;
+	stations: Station[];
+}
+
+interface Station {
+	stationId: number;
+	stationName: string;
+	hardware: HardwareDetails[];
+	bookingDetails: BookingDetails[];
+}
+
 export interface Reservation {
 	sectorId: number;
 	sectorName: string;
@@ -7,11 +20,12 @@ export interface Reservation {
 	bookingDetails: BookingDetails[];
 }
 
-export interface HardwareDetails {
+interface HardwareDetails {
 	branch: string;
-	pcType: string 
+	pcType: string;
 	serialNumberPc: string;
-}[]
+}
+[];
 
 export interface BookingDetails {
 	name: string;

@@ -1,16 +1,15 @@
-<!-- Botão para abrir o modal de reserva -->
+<!-- btn to open modal -->
 <button class="btn-reservation" (click)="openModal()">{{ btnContent }}</button>
 
-<!-- Modal de reserva -->
 <div class="modal__container" [ngClass]="{ show: showModal }">
 	<div class="modal__content">
-		<!-- Cabeçalho do modal -->
+		<!-- modal header -->
 		<div class="modal__header">
 			<div class="modal__title">
 				<span>{{ titleModal }}</span>
 			</div>
 			<div class="modal__subtitle">
-				<!-- Detalhes da ilha, mesa e equipamento selecionados -->
+				<!-- sector and stations selected -->
 				<span>
 					{{ sectorName }} {{ sectorId }} - {{ stationName }} {{ stationId }} -
 					{{ branch }}-{{ pcType }}-{{ serialNumberPc }}
@@ -19,10 +18,10 @@
 			<hr />
 		</div>
 
-		<!-- Formulário de reserva -->
+		<!-- booking form -->
 		<div class="content__forms">
 			<form (ngSubmit)="capturarDadosFormulario()">
-				<!-- Campo Nome -->
+				<!-- name field -->
 				<div class="name__container">
 					<div class="content_name">
 						<label for="nome">Nome:</label>
@@ -37,7 +36,10 @@
 						/>
 					</div>
 					<div
-						*ngIf="nomeInput.touched && !isNameValid()"
+						*ngIf="
+							nomeInput.touched &&
+							!conflictCheckerService.isNotEmpty(formData.name)
+						"
 						class="error-message"
 					>
 						Por favor, insira um nome válido.
@@ -45,7 +47,7 @@
 					<hr />
 				</div>
 
-				<!-- Campos de data de início e fim -->
+				<!-- start date, end date fields -->
 				<div class="content_start_date">
 					<label for="startDate">Data (início):</label>
 					<input
@@ -58,7 +60,7 @@
 					<div
 						*ngIf="
 							nomeInput.touched &&
-							isNameValid() &&
+							conflictCheckerService.isNotEmpty(formData.startDate) &&
 							startDateInput.touched &&
 							startDateInput.hasError('required')
 						"
@@ -69,10 +71,10 @@
 					<div
 						*ngIf="
 							nomeInput.touched &&
-							isNameValid() &&
+							conflictCheckerService.isNotEmpty(formData.startDate) &&
 							startDateInput.touched &&
 							startDateInput.hasError('required') === false &&
-							!isStartDateValid()
+							!conflictCheckerService.isStartDateValid(formData.startDate)
 						"
 						class="error-message"
 					>
@@ -94,7 +96,7 @@
 					<div
 						*ngIf="
 							nomeInput.touched &&
-							isNameValid() &&
+							conflictCheckerService.isNotEmpty(formData.endDate) &&
 							endDateInput.touched &&
 							endDateInput.hasError('required')
 						"
@@ -105,10 +107,17 @@
 					<div
 						*ngIf="
 							nomeInput.touched &&
-							isNameValid() &&
+							conflictCheckerService.isNotEmpty(formData.endDate) &&
 							endDateInput.touched &&
 							endDateInput.hasError('required') === false &&
-							(!isEndDateValid() || !areDatesValid())
+							!conflictCheckerService.isEndDateValid(
+								formData.startDate,
+								formData.endDate
+							) &&
+							!conflictCheckerService.areDatesValid(
+								formData.startDate,
+								formData.endDate
+							)
 						"
 						class="error-message"
 					>
@@ -117,7 +126,7 @@
 				</div>
 
 				<hr />
-				<!-- Campo de repetição -->
+				<!-- frequency field -->
 				<div class="content_frequency">
 					<label for="repeticao">Repetição:</label>
 					<select
@@ -125,7 +134,6 @@
 						id="repeticao"
 						name="tipo-repeticao"
 						[(ngModel)]="formData.frequency"
-						(change)="onNgModelChange()"
 					>
 						<option value="none">Nenhum</option>
 						<option value="diariamente">Diariamente</option>
@@ -133,12 +141,16 @@
 						<option value="mensalmente">Mensalmente</option>
 					</select>
 					<div *ngIf="isRepetitionInvalid()" class="error-message">
+						{{ isRepetitionInvalid() }}
 						Pelo menos um dia da semana deve ser selecionado.
 					</div>
 				</div>
 
 				<hr />
-				<div *ngIf="isSelectionValid()" class="content_days_of_the_week">
+				<div
+					*ngIf="conflictCheckerService.isFrequencyValid(formData.frequency)"
+					class="content_days_of_the_week"
+				>
 					<span>Dias da semana:</span>
 					<div class="days-of-the-week__container">
 						<table>
@@ -147,10 +159,6 @@
 							<th>Quarta</th>
 							<th>Quinta</th>
 							<th>Sexta</th>
-							<!--
-		<th>Sábado</th>
-		<th>Domingo</th>
-		-->
 							<tr>
 								<td>
 									<input
@@ -160,7 +168,6 @@
 										name="days-of-week"
 										value="monday"
 										[(ngModel)]="daysOfTheWeekSelected[0]"
-										(change)="onNgModelChange()"
 									/>
 								</td>
 								<td>
@@ -171,7 +178,6 @@
 										name="days-of-week"
 										value="tuesday"
 										[(ngModel)]="daysOfTheWeekSelected[1]"
-										(change)="onNgModelChange()"
 									/>
 								</td>
 								<td>
@@ -182,7 +188,6 @@
 										name="days-of-week"
 										value="wednesday"
 										[(ngModel)]="daysOfTheWeekSelected[2]"
-										(change)="onNgModelChange()"
 									/>
 								</td>
 								<td>
@@ -193,7 +198,6 @@
 										name="days-of-week"
 										value="thursday"
 										[(ngModel)]="daysOfTheWeekSelected[3]"
-										(change)="onNgModelChange()"
 									/>
 								</td>
 								<td>
@@ -204,20 +208,16 @@
 										name="days-of-week"
 										value="friday"
 										[(ngModel)]="daysOfTheWeekSelected[4]"
-										(change)="onNgModelChange()"
 									/>
 								</td>
-								<!--
-		  <td><input class="form-check-input" type="checkbox" id="saturday" name="days-of-week" value="saturday"></td>
-		  <td><input class="form-check-input" type="checkbox" id="sunday" name="days-of-week" value="sunday"></td> 
-		  -->
 							</tr>
 						</table>
 					</div>
 				</div>
 
-				<hr *ngIf="isSelectionValid()" />
-				<!-- até aqui -->
+				<hr
+					*ngIf="conflictCheckerService.isFrequencyValid(formData.frequency)"
+				/>
 
 				<!-- commment field -->
 				<div class="content_comment">
@@ -230,7 +230,8 @@
 						placeholder="Insira um comentário..."
 					></textarea>
 				</div>
-				<!-- modal footer -->
+
+				<!-- modal footer btn -->
 				<footer>
 					<div class="footer-modal">
 						<!-- btn cancel & save reserve -->
