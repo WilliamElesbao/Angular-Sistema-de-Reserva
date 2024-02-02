@@ -4,6 +4,7 @@
 	text-decoration: none;
 	list-style: none;
 	background-color: transparent;
+	border: none;
 }
 
 header {
@@ -24,9 +25,7 @@ header {
 }
 
 .header-nav > .logo {
-	/* border: 1px solid green;
-  width: 70px;
-  height: 70px; */
+	/* border: 1px solid green; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -67,15 +66,13 @@ header {
 	height: 100%;
 }
 
-.header-nav-menu > ul > a > li > span,
-.header-nav-about > span {
+.header-nav-menu > ul > a > li > span {
 	color: var(--font-color-nav);
 	font-weight: 300;
 	transition: 0.3s ease;
 }
 
-.header-nav-menu > ul > a:hover > li > span,
-.header-nav-about:hover > span {
+.header-nav-menu > ul > a:hover > li > span {
 	color: var(--font-color-nav-hover);
 }
 
@@ -88,4 +85,59 @@ header {
 	/* border: 1px solid red; */
 	display: flex;
 	align-items: center;
+}
+
+.aboutMe {
+	border: 1px solid var(--font-color-nav);
+	border-radius: 1rem;
+	padding: 0.2rem 0.5rem;
+	color: var(--font-color-nav);
+	cursor: pointer;
+	transition: 0.5s ease;
+}
+
+.aboutMe:hover {
+	background-color: var(--bg-color-btn-about-me-hover);
+	color: #fff;
+	transition: 0.5s ease;
+	border: none;
+}
+
+#about-me-container {
+	/* border: 1px solid red; */
+	display: flex;
+	flex-direction: column;
+	border-radius: 1rem 0 0 1rem;
+	background-color: var(--bg-color-card-about-me);
+	position: fixed;
+	top: 25%;
+	right: 0;
+	z-index: 5000;
+	height: 50vh;
+}
+
+.right-hidden {
+	width: 0;
+	transition: 0.7s ease;
+}
+.right-show {
+	width: 18rem;
+	transition: 0.7s ease;
+}
+
+.closeAboutMe {
+	/* border: 1px solid red; */
+	color: rgba(255, 255, 255, 0.589);
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	padding: 0.4rem;
+	cursor: pointer;
+	font-size: 1.2rem;
+	transition: transform 0.3s ease;
+}
+
+.closeAboutMe:hover {
+	transform: scale(1.2);
+	color: red;
 }
