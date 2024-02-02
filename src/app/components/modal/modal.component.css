@@ -2,30 +2,6 @@
 	background-color: transparent;
 }
 
-/* Estilização do botão de reserva */
-.btn-reservation {
-	border: 1px solid black;
-	border-radius: 18px;
-	padding: 0.25rem 0.65rem;
-	color: #1d1d1f;
-	font-size: 13px;
-	text-decoration: none;
-	transition: 0.3s ease;
-	cursor: pointer;
-}
-
-/* Efeito hover do botão */
-.btn-reservation:hover {
-	background-color: #1d1d1f;
-	color: #f5f5f7;
-}
-
-/* Efeito active do botão */
-.btn-reservation:active {
-	position: relative;
-	top: 1px;
-}
-
 .modal__container {
 	/* border: red 3px solid; */
 	display: none;
