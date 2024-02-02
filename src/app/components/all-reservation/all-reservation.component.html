@@ -1,149 +1,51 @@
 <main>
-	<div class="all-reservation__content">
-		<div class="all-reservation__title">
+	<div class="reservation-container">
+		<div class="reservation-title">
 			<div class="border-left"></div>
-			<span>Todas as reservas</span>
+			<span>All Reservations</span>
 		</div>
-		<section
-			*ngFor="let sector of ilhasComMesas"
-			class="all-reservation__ilhas__container"
-		>
-			<!-- Ilha 1 -->
-			<div class="all-reservation__ilha__content">
-				<div class="ilha-title">
+		<section *ngFor="let sector of sectors" class="sector-container">
+			<!-- Sector -->
+			<div class="sector-content">
+				<div class="sector-title">
 					<div class="border-left"></div>
 					<span>{{ sector.sectorName }} {{ sector.sectorId }}</span>
-					<div class="arrow-down">
-						<button
-							(click)="showStations(sector.sectorId)"
-							class="ilha-show-mesas-reservadas"
-						>
-							<i class="fa-solid fa-angle-down"></i>
-						</button>
-					</div>
+					<button (click)="showStations(sector.sectorId.toString())"	class="fa-solid fa-angle-down"></button>
 				</div>
-				<!-- Mesas da Ilha -->
-				<div
-					id="{{ sector.sectorId }}"
-					class="hidden-stations propriedade-mesa"
-				>
+				<!-- Station from Sector -->
+				<div id="{{ sector.sectorId }}"	class="hidden-station station-property">
 					<div *ngFor="let station of sector.stations">
-						<div class="mesa-title">
+						<div class="station-title">
 							<div class="border-left"></div>
 							<span>{{ station.stationName }}</span>
 							<span>-</span>
 							<span>{{ station.stationId }}</span>
 							<span>-</span>
-							<span *ngFor="let hardware of station.hardware"
-								>{{ hardware.branch }}-{{ hardware.pcType }}-{{
-									hardware.serialNumberPc
-								}}</span
-							>
-							<div class="arrow-down">
-								<button
-									(click)="
-										showStationDetails(sector.sectorId + '' + station.stationId)
-									"
-									class="mesa-show-reservas"
-								>
-									<i class="fa-solid fa-angle-down"></i>
-								</button>
-							</div>
+							<span *ngFor="let hardware of station.hardware">{{ hardware.branch }}-{{ hardware.pcType }}-{{ hardware.serialNumberPc }}</span>
+							<button	(click)="showStationDetails(sector.sectorId + '' + station.stationId)" class="fa-solid fa-angle-down"></button>
 						</div>
-						<div
-							id="{{ sector.sectorId + '' + station.stationId }}"
-							class="hidden-station-details"
-						>
-							<div
-								*ngFor="let username of station.bookingDetails"
-								class="dados-da-reserva-container"
-							>
-								<div
-									*ngIf="username.name && username.name.trim() !== ''"
-									class="reservador-por"
-								>
-									<span class="label">Reservado por:</span>
-									<span class="user"> {{ username.name }}</span>
+						<!-- Reserved Station Details -->
+						<div id="{{ sector.sectorId + '' + station.stationId }}" class="hidden-station-details">
+							<div *ngFor="let bookingDetail of station.bookingDetails" class="booking-details-container">
+								<div *ngIf="bookingDetail.name && bookingDetail.name.trim() !== ''" class="booked-by" >
+									<span class="labelName">Booked by:</span>
+									<span class="username">{{ bookingDetail.name }}</span>
 								</div>
-								<div class="reservas-do-william">
-									<div class="labels-da-reserva">
-										<ul>
-											<li
-												*ngIf="
-													isValidDate(username.startDate) &&
-													isValidDate(username.endDate)
-												"
-											>
-												Data:
-											</li>
-											<li *ngIf="username.frequency !== 'none'">Frequência:</li>
-											<li
-												*ngIf="
-													isValidDate(username.startDate) &&
-													isValidDate(username.endDate)
-												"
-											>
-												Dias:
-											</li>
-											<li
-												*ngIf="
-													isValidDate(username.startDate) &&
-													isValidDate(username.endDate)
-												"
-											>
-												Horários:
-											</li>
-											<li
-												*ngIf="
-													username.comment && username.comment.trim() !== ''
-												"
-											>
-												Comentário:
-											</li>
-										</ul>
-									</div>
-									<div class="dados-da-reserva">
-										<ul>
-											<li
-												*ngIf="
-													isValidDate(username.startDate) &&
-													isValidDate(username.endDate)
-												"
-											>
-												{{
-													formatDateRange(username.startDate, username.endDate)
-												}}
-											</li>
-											<li *ngIf="username.frequency !== 'none'">
-												{{ username.frequency }}
-											</li>
-											<li
-												*ngIf="
-													isValidDate(username.startDate) &&
-													isValidDate(username.endDate)
-												"
-											>
-												{{ getFormattedDays(username) }}
-											</li>
-											<li
-												*ngIf="
-													isValidDate(username.startDate) &&
-													isValidDate(username.endDate)
-												"
-											>
-												{{
-													formatTimeRange(username.startDate, username.endDate)
-												}}
-											</li>
-											<li
-												*ngIf="
-													username.comment && username.comment.trim() !== ''
-												"
-											>
-												{{ username.comment }}
-											</li>
-										</ul>
-									</div>
+								<div class="reservation-info">
+									<ul class="info-labels">
+										<li *ngIf="reservationService.isValidDate(bookingDetail.startDate) && reservationService.isValidDate(bookingDetail.endDate)">Data:</li>
+										<li *ngIf="bookingDetail.frequency !== 'none'">Frequência:</li>
+										<li *ngIf="reservationService.isValidDate(bookingDetail.startDate) && reservationService.isValidDate(bookingDetail.endDate)">Dias:</li>
+										<li *ngIf="reservationService.isValidDate(bookingDetail.startDate) && reservationService.isValidDate(bookingDetail.endDate)">Horários:</li>
+										<li *ngIf="bookingDetail.comment && bookingDetail.comment.trim() !== ''">Comentário:</li>
+									  </ul>
+									  <ul class="info-datas">
+										<li *ngIf="reservationService.isValidDate(bookingDetail.startDate) && reservationService.isValidDate(bookingDetail.endDate)">{{ reservationService.formatDateRange(bookingDetail.startDate, bookingDetail.endDate) }}</li>
+										<li *ngIf="bookingDetail.frequency !== 'none'">{{ bookingDetail.frequency }}</li>
+										<li *ngIf="reservationService.isValidDate(bookingDetail.startDate) && reservationService.isValidDate(bookingDetail.endDate)">{{ reservationService.getFormattedDays(bookingDetail.daysOfTheWeekSelected) }}</li>
+										<li *ngIf="reservationService.isValidDate(bookingDetail.startDate) && reservationService.isValidDate(bookingDetail.endDate)">{{ reservationService.formatTimeRange(bookingDetail.startDate, bookingDetail.endDate) }}</li>
+										<li *ngIf="bookingDetail.comment && bookingDetail.comment.trim() !== ''">{{ bookingDetail.comment }}</li>
+									  </ul>
 								</div>
 							</div>
 						</div>

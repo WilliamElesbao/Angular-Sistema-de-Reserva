@@ -1,35 +1,30 @@
-<div class="islands-set__container">
-  <!-- Informações da Ilha (nome, número e quantidade de mesas por ilha) -->
-  <div *ngFor="let sector of sectors" class="island-and-tables__item">
-    <!-- Detalhes da ilha: nome e número -->
-    <div class="island-name-and-number">
-      <span>{{ sector.sectorName }}</span>
-      <div class="circle-number">
-        <span>{{ sector.sectorId }}</span>
-      </div>
-    </div>
-
-    <!-- Conjunto de mesas para a ilha atual -->
-    <div class="tables__container">
-      <!-- Iteração sobre as mesas da ilha -->
-      <div *ngFor="let station of sector.stations" class="island-window__table">
-        <!-- Detalhes da mesa: nome e número -->
-        <span class="table-title">{{ station.stationName }} {{ station.stationId }}</span>
-        <!-- Componente modal para exibir detalhes da mesa -->
-        <span class="table-subtitle"
-          >{{ station.branch }}-{{ station.pcType }}-{{ station.serialNumberPc }}</span
-        >
-        <app-modal
-          [sectorName]="sector.sectorName"
-          [sectorId]="sector.sectorId"
-          [stationName]="station.stationName"
-          [stationId]="station.stationId"
-          [branch]="station.branch"
-          [pcType]="station.pcType"
-          [serialNumberPc]="station.serialNumberPc"
-        >
-        </app-modal>
-      </div>
-    </div>
-  </div>
+<div class="sectors-bottom-container">
+	<div *ngFor="let sector of sectors" class="sectors">
+		<div class="sector-title">
+			<span>{{ sector.sectorName }}</span>
+			<div class="circle-number">
+				<span>{{ sector.sectorId }}</span>
+			</div>
+		</div>
+		<div class="stations-container">
+			<div *ngFor="let station of sector.stations" class="sector-bottom-stations">
+				<span class="station-title">{{ station.stationName }} {{ station.stationId }}</span>
+				<!-- Componente modal para exibir detalhes da station -->
+				<span class="station-subtitle">{{ station.branch }}-{{ station.pcType }}-{{ station.serialNumberPc }}</span>
+				<app-modal
+					[reservations]="reservations"
+					[sectorName]="sector.sectorName"
+					[sectorId]="sector.sectorId"
+					[sectorName]="sector.sectorName"
+					[sectorId]="sector.sectorId"
+					[stationName]="station.stationName"
+					[stationId]="station.stationId"
+					[branch]="station.branch"
+					[pcType]="station.pcType"
+					[serialNumberPc]="station.serialNumberPc"
+				>
+				</app-modal>
+			</div>
+		</div>
+	</div>
 </div>

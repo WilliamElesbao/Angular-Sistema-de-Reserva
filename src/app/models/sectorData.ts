@@ -4,7 +4,7 @@ export interface SectorDetails {
 		sectorName: string;
 		stations: StationDetails[];
 	}[];
-};
+}
 
 interface StationDetails {
 	stationId: number;

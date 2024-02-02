@@ -5,7 +5,7 @@ import { SectorDetails } from '../models/sectorData';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-	providedIn: 'root', 
+	providedIn: 'root',
 })
 export class GetDataIslandService {
 	private sectorDataUrl: string = environment.sectorData;
