@@ -31,7 +31,15 @@
 			</ul>
 		</div>
 		<div class="header-nav-about">
-			<span class="">About</span>
+			<button (click)="openAboutMe()" class="aboutMe">About Me</button>
 		</div>
 	</nav>
 </header>
+<div id="about-me-container" class="right-hidden">
+	<button
+		(click)="closeAboutMe()"
+		class="closeAboutMe fa-solid fa-xmark"
+	></button>
+
+	<app-about-me></app-about-me>
+</div>

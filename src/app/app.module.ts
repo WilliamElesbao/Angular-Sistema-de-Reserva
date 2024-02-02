@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { AllReservationComponent } from './components/all-reservation/all-reservation.component';
 import { AvailableTablesComponent } from './components/available-tables/available-tables.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AvailableTablesComponent } from './components/available-tables/availabl
     HeaderNavComponent,
     AllReservationComponent,
     AvailableTablesComponent,
+    AboutMeComponent,
     
   ],
   imports: [
