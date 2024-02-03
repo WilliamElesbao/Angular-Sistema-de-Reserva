@@ -6,7 +6,7 @@ import { Reservation } from '../../models/reservation.model';
 @Component({
 	selector: 'app-ilha-central',
 	templateUrl: './ilha-central.component.html',
-	styleUrls: ['./ilha-central.component.css'],
+	styleUrls: ['./ilha-central.component.css', './responsive.component.css'],
 })
 export class IlhaCentralComponent implements OnInit {
 	sectors: Sector[] = [];

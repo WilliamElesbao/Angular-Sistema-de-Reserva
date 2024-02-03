@@ -1,22 +1,47 @@
-@media (width <=1855px) {
-	/* Container principal para ilhas e mesas */
-	.islands-and-tables__container {
-		/* border: 1px solid red; */
-
-		display: flex;
-		flex-direction: column;
-		/* justify-content: space-around; */
-		width: 100vw;
+@media (width <=1660px) {
+	.sectors-bottom-container {
+		flex-wrap: wrap;
+		gap: 1rem;
 	}
+	.sectors {
+		width: 18vw;
+	}
+}
 
-	.island-and-tables__item {
-		/* border: 1px solid rgb(185, 255, 73); */
+@media (width <=1215px) {
+	.sectors-bottom-container {
+		flex-wrap: wrap;
+	}
+	.sectors {
+		width: 23vw;
+	}
+}
 
+@media (width <=1000px) {
+	.sectors-bottom-container {
+		flex-wrap: wrap;
+	}
+	.sectors {
+		width: 30vw;
+	}
+}
+
+@media (width <= 900px) {
+	.sectors-bottom-container {
+		flex-wrap: wrap;
+	}
+	.sectors {
+		width: 45vw;
+	}
+}
+
+@media (width <= 815px) {
+	.sectors-bottom-container {
 		display: flex;
-		flex-direction: column;
-		width: 40%;
-		height: auto;
-		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-		/* margin-top: 20px; Centraliza horizontalmente */
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.sectors {
+		width: 55vw;
 	}
 }
