@@ -16,6 +16,7 @@ As ideias/template/layout estão na pasta [.ideas](https://github.com/WilliamEle
 - [x] 🔓 Validação dos campos do formulário(reservar) no front-end e back-end
 - [x] 🔓 All Reservations - ordernar de forma crescente (setores e stations)
 - [x] 🔓 Visualizar todas as reservas agendadas (Header/Menu > "All Reservations")
+- [x] 🔓 Layout dos Sectors responsivos
 - [ ] 🔒 Visualizar todas os setores/stations disponíveis para reserva
 - [ ] 🔒 Implementar consulta automática no modal de reserva: o usuário informa o id e o sistema busca automaticamente o nome associado
 - [ ] 🔒 Botão "Visualizar" - modal com as reservas por stations
