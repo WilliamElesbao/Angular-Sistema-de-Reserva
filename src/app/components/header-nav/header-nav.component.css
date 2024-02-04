@@ -21,12 +21,15 @@ header {
 	/* border: 1px solid blue; */
 	display: flex;
 	height: 100%;
-	justify-content: space-around;
+	justify-content: center;
+	align-items: center;
 }
 
 .header-nav > .logo {
 	/* border: 1px solid green; */
 	display: flex;
+	position: absolute;
+	left: 5rem;
 	align-items: center;
 	justify-content: center;
 }
@@ -38,19 +41,20 @@ header {
 }
 
 .header-nav-menu {
-	/* border: 1px solid aqua; */
+	/* border: 1px solid green; */
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
-	width: 40vw;
 }
 
 .header-nav-menu > ul {
 	/* border: 1px solid red; */
 	display: flex;
 	align-items: center;
+	gap: 1rem;
 	width: 100%;
 	height: 100%;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 .header-nav-menu > ul > a {
@@ -84,6 +88,8 @@ header {
 .header-nav-about {
 	/* border: 1px solid red; */
 	display: flex;
+	right: 3rem;
+	position: absolute;
 	align-items: center;
 }
 
@@ -91,6 +97,9 @@ header {
 	border: 1px solid var(--font-color-nav);
 	border-radius: 1rem;
 	padding: 0.2rem 0.5rem;
+	align-items: center;
+	width: 7rem;
+	height: 2rem;
 	color: var(--font-color-nav);
 	cursor: pointer;
 	transition: 0.5s ease;
@@ -140,4 +149,8 @@ header {
 .closeAboutMe:hover {
 	transform: scale(1.2);
 	color: red;
+}
+
+.menu-btn {
+	display: none;
 }

@@ -1,11 +1,14 @@
 <header>
 	<nav class="header-nav">
-		<div class="logo transparent">
+		<div class="logo">
 			<a [routerLink]="['/']">
 				<img src="assets/img/logo/logo_maior.png" alt="" />
 			</a>
 		</div>
-		<div class="header-nav-menu">
+		<div
+			id="nav-menu"
+			class="header-nav-menu responsive-menu-hidden responsive-nav"
+		>
 			<ul>
 				<a
 					[routerLink]="['/']"
@@ -29,10 +32,11 @@
 					<li><span>All Reservations</span></li>
 				</a>
 			</ul>
+			<div class="header-nav-about">
+				<button (click)="openAboutMe()" class="aboutMe">About Me</button>
+			</div>
 		</div>
-		<div class="header-nav-about">
-			<button (click)="openAboutMe()" class="aboutMe">About Me</button>
-		</div>
+		<button (click)="showMenu()" class="menu-btn fa-solid fa-bars"></button>
 	</nav>
 </header>
 <div id="about-me-container" class="right-hidden">
