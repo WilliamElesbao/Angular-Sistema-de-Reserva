@@ -46,8 +46,9 @@ Para desenvolver ou utilizar este projeto, você precisará ter instalado:
 1. Clone este repositório ou de um Fork no projeto: `git clone https://github.com/WilliamElesbao/Angular-Sistema-de-Reserva.git`
 2. Instale as dependências necessárias:
 3. `npm install`
-4. `npm install express mysql body-parser cors`
-5. As Query para criação do database, tables e inserção dos dados nas tables estão localizados: `src > assets > data > SQL_scripts`
+4. As Query para criação do database, tables e inserção dos dados nas tables estão localizados: `src > assets > data > SQL_scripts`
+5. Necessário rodar a seguinte Query no db: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+FLUSH PRIVILEGES;`
 6. No diretório do projeto: `cd src/app/api`
 7. Rodar o server da API: `node server.js`
 8. Inicie o servidor de desenvolvimento usando `ng serve`.
