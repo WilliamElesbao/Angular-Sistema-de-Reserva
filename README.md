@@ -8,6 +8,7 @@ As ideias/template/layout estão na pasta [.ideas](https://github.com/WilliamEle
 
 ## ⚙️Recursos/Features a serem Desenvolvidos 🛠️
 
+
 - [x] 🔓 Layout da disposição dos setores e s stations;
 - [x] 🔓 Header(nav) - Disposição dos Setores e Stations | Available Stations | All Reservations;
 - [x] 🔓 Modal/Form para realizar a reserva;
