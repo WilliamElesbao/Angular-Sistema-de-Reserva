@@ -7,7 +7,7 @@ import { ConflictCheckerService } from '../../services/conflict-checker.service'
 @Component({
 	selector: 'app-modal',
 	templateUrl: './modal.component.html',
-	styleUrls: ['./modal.component.css', './modal-btn.component.css'],
+	styleUrls: ['./modal.component.css', './modal-btn.component.css','./modal-responsive.component.css'],
 })
 export class ModalComponent implements OnInit {
 	btnContent: string = 'Reservar';

@@ -1,0 +1,5 @@
+@media (width <= 850px) {
+	.modal__content {
+		width: 95%;
+	}
+}
